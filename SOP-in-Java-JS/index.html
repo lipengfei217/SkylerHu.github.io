@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JAVA调用https, JS跨域请求，客户端解决JS跨域问题, SOP | Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="同源协议 (SOP,Same-Origin-Policy) 可防止从一个来源加载的脚本获取或操纵来自另一来源的文档的属性或方法。术语来源 是域名、应用程序协议和运行脚本文档的端口的结合。可能存在关于 SOP 概念的一些误解；SOP 指只能从站点 A、不能从站点 B 获取信息。您需要知道在 SOP 限制下可以做什么，不可以做什么。
+1.JAVA https请求在做微信服务号的时候出现的问题，解决方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA调用https, JS跨域请求，客户端解决JS跨域问题, SOP">
+<meta property="og:url" content="http://yoursite.com/SOP-in-Java-JS/index.html">
+<meta property="og:site_name" content="Skyler's Blog">
+<meta property="og:description" content="同源协议 (SOP,Same-Origin-Policy) 可防止从一个来源加载的脚本获取或操纵来自另一来源的文档的属性或方法。术语来源 是域名、应用程序协议和运行脚本文档的端口的结合。可能存在关于 SOP 概念的一些误解；SOP 指只能从站点 A、不能从站点 B 获取信息。您需要知道在 SOP 限制下可以做什么，不可以做什么。
+1.JAVA https请求在做微信服务号的时候出现的问题，解决方法">
+<meta property="og:updated_time" content="2016-06-26T10:27:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA调用https, JS跨域请求，客户端解决JS跨域问题, SOP">
+<meta name="twitter:description" content="同源协议 (SOP,Same-Origin-Policy) 可防止从一个来源加载的脚本获取或操纵来自另一来源的文档的属性或方法。术语来源 是域名、应用程序协议和运行脚本文档的端口的结合。可能存在关于 SOP 概念的一些误解；SOP 指只能从站点 A、不能从站点 B 获取信息。您需要知道在 SOP 限制下可以做什么，不可以做什么。
+1.JAVA https请求在做微信服务号的时候出现的问题，解决方法">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/links">链接们</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-SOP-in-Java-JS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/SOP-in-Java-JS/" class="article-date">
+  	<time datetime="2014-11-12T01:25:00.000Z" itemprop="datePublished">2014-11-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA调用https, JS跨域请求，客户端解决JS跨域问题, SOP
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Play/">Play</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SOP/">SOP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>同源协议 (SOP,Same-Origin-Policy)</code> 可防止从一个来源加载的脚本获取或操纵来自另一来源的文档的属性或方法。术语来源 是域名、应用程序协议和运行脚本文档的端口的结合。可能存在关于 SOP 概念的一些误解；SOP 指只能从站点 A、不能从站点 B 获取信息。您需要知道在 SOP 限制下可以做什么，不可以做什么。</p>
+<h3 id="1-JAVA-https请求"><a href="#1-JAVA-https请求" class="headerlink" title="1.JAVA https请求"></a>1.JAVA https请求</h3><p>在做微信服务号的时候出现的问题，解决方法：自定义证书管理器。证书管理器的作用就是让它信任我们指定的证书，意味着信任所有证书，不管是否权威机构颁发，证书有了，通用的https请求方法就不难实现了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.qq.weixin.util;  </span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;  </span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;  </span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;  </span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;  </span><br><span class="line"><span class="keyword">import</span> java.net.URL;  </span><br><span class="line"><span class="keyword">import</span> java.security.cert.CertificateException;  </span><br><span class="line"><span class="keyword">import</span> java.security.cert.X509Certificate;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.HttpsURLConnection;  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.SSLContext;  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.SSLSocketFactory;  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.TrustManager;  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.X509TrustManager;  </span><br><span class="line">    </span><br><span class="line"><span class="comment">/**  </span><br><span class="line"> * 公众平台通用接口工具类  </span><br><span class="line"> *  from==&gt; </span><br><span class="line"> *      shttp://blog.csdn.net/lyq8479/article/details/9841371 </span><br><span class="line"> * <span class="doctag">@author</span> liuyq  </span><br><span class="line"> * <span class="doctag">@date</span> 2013-08-09  </span><br><span class="line"> */</span>    </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXHttpUtil</span> </span>&#123;    </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/**  </span><br><span class="line">     * 发起https请求并获取结果  </span><br><span class="line">     *   </span><br><span class="line">     * <span class="doctag">@param</span> requestUrl 请求地址  </span><br><span class="line">     * <span class="doctag">@param</span> requestMethod 请求方式（GET、POST）  </span><br><span class="line">     * <span class="doctag">@param</span> outputStr 提交的数据  </span><br><span class="line">     * <span class="doctag">@return</span> String  </span><br><span class="line">     */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpsRequest</span><span class="params">(String requestUrl, String requestMethod, String outputStr)</span> <span class="keyword">throws</span> Exception </span>&#123;    </span><br><span class="line">        StringBuffer buffer = <span class="keyword">new</span> StringBuffer();    </span><br><span class="line">        <span class="comment">// 创建SSLContext对象，并使用我们指定的信任管理器初始化    </span></span><br><span class="line">        TrustManager[] tm = &#123; <span class="keyword">new</span> MyX509TrustManager() &#125;;    </span><br><span class="line">        SSLContext sslContext = SSLContext.getInstance(<span class="string">"SSL"</span>, <span class="string">"SunJSSE"</span>);    </span><br><span class="line">        sslContext.init(<span class="keyword">null</span>, tm, <span class="keyword">new</span> java.security.SecureRandom());    </span><br><span class="line">        <span class="comment">// 从上述SSLContext对象中得到SSLSocketFactory对象    </span></span><br><span class="line">        SSLSocketFactory ssf = sslContext.getSocketFactory();    </span><br><span class="line">          </span><br><span class="line">        URL url = <span class="keyword">new</span> URL(requestUrl);    </span><br><span class="line">        HttpsURLConnection httpUrlConn = (HttpsURLConnection) url.openConnection();    </span><br><span class="line">        httpUrlConn.setSSLSocketFactory(ssf);    </span><br><span class="line">          </span><br><span class="line">        httpUrlConn.setDoOutput(<span class="keyword">true</span>);    </span><br><span class="line">        httpUrlConn.setDoInput(<span class="keyword">true</span>);    </span><br><span class="line">        httpUrlConn.setUseCaches(<span class="keyword">false</span>);    </span><br><span class="line">        <span class="comment">// 设置请求方式（GET/POST）    </span></span><br><span class="line">        httpUrlConn.setRequestMethod(requestMethod);    </span><br><span class="line">          </span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"GET"</span>.equalsIgnoreCase(requestMethod))    </span><br><span class="line">            httpUrlConn.connect();    </span><br><span class="line">          </span><br><span class="line">        <span class="comment">// 当有数据需要提交时    </span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != outputStr) &#123;  </span><br><span class="line">            OutputStream outputStream = httpUrlConn.getOutputStream();    </span><br><span class="line">            <span class="comment">// 注意编码格式，防止中文乱码    </span></span><br><span class="line">            outputStream.write(outputStr.getBytes(<span class="string">"UTF-8"</span>));    </span><br><span class="line">            outputStream.close();    </span><br><span class="line">        &#125;    </span><br><span class="line">          </span><br><span class="line">        <span class="comment">// 将返回的输入流转换成字符串    </span></span><br><span class="line">        InputStream inputStream = httpUrlConn.getInputStream();    </span><br><span class="line">        InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(inputStream, <span class="string">"utf-8"</span>);    </span><br><span class="line">        BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(inputStreamReader);    </span><br><span class="line">          </span><br><span class="line">        String str = <span class="keyword">null</span>;    </span><br><span class="line">        <span class="keyword">while</span> ((str = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;    </span><br><span class="line">            buffer.append(str);    </span><br><span class="line">        &#125;    </span><br><span class="line">        bufferedReader.close();    </span><br><span class="line">        inputStreamReader.close();    </span><br><span class="line">        <span class="comment">// 释放资源    </span></span><br><span class="line">        inputStream.close();    </span><br><span class="line">        inputStream = <span class="keyword">null</span>;    </span><br><span class="line">        httpUrlConn.disconnect();   </span><br><span class="line">        String result = buffer.toString();  </span><br><span class="line">        System.out.println(<span class="string">"请求结果==&gt;"</span> + result);  </span><br><span class="line">        <span class="keyword">return</span> result;    </span><br><span class="line">    &#125;    </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/**  </span><br><span class="line">     * 证书信任管理器（用于https请求）  </span><br><span class="line">     *   </span><br><span class="line">     * <span class="doctag">@author</span> liufeng  </span><br><span class="line">     * <span class="doctag">@date</span> 2013-08-08  </span><br><span class="line">     */</span>    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyX509TrustManager</span> <span class="keyword">implements</span> <span class="title">X509TrustManager</span> </span>&#123;    </span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkClientTrusted</span><span class="params">(X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> CertificateException </span>&#123;    </span><br><span class="line">        &#125;    </span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkServerTrusted</span><span class="params">(X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> CertificateException </span>&#123;    </span><br><span class="line">        &#125;    </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">public</span> X509Certificate[] getAcceptedIssuers() &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-JS跨域请求"><a href="#2-JS跨域请求" class="headerlink" title="2. JS跨域请求"></a>2. JS跨域请求</h3><p>在网上看了好多方法:</p>
+<ul>
+<li>1）iframe</li>
+<li>2）document.domain</li>
+<li>3）window.name</li>
+<li>4）script</li>
+<li>5）XDomainRequest (IE8+)</li>
+<li>6）XMLHTTPRequest (Firefox3.5+)</li>
+<li>7）postMessage (HTML5)</li>
+<li>8）后台代理</li>
+</ul>
+<p><strong>本文此处讲解一下JsonP的处理注意事项</strong></p>
+<p>JSONP的实现思路很简单</p>
+<ul>
+<li>1）前端创建script标记，设置src，添加到head中（你可以往body中添加）；</li>
+<li>2）后台返回一个js变量jsonp，这个jsonp就是请求后的JSON数据；</li>
+<li>3）回调完成后删除script标记（还有一些清理工作如避免部分浏览器内存泄露等）。</li>
+</ul>
+<p>客户端直接使用JsonP请求：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;    </span><br><span class="line">        url:<span class="string">"http://crossdomain.com/services.php"</span>,    </span><br><span class="line">        dataType:<span class="string">'jsonp'</span>,    </span><br><span class="line">        data:<span class="string">''</span>,    </span><br><span class="line">        jsonp:<span class="string">'callback'</span>,    </span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;    </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> result) &#123;    </span><br><span class="line">                alert(i+<span class="string">":"</span>+result[i]);<span class="comment">//循环输出a:1,b:2,etc.    </span></span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;,    </span><br><span class="line">        timeout:<span class="number">3000</span>    </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>服务器端处理：(Play Framework写的服务器)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String callback = request.params.get(<span class="string">"callback"</span>);  </span><br><span class="line">String result = callback + <span class="string">"("</span> + JSON.toJSONString(dataMap) + <span class="string">")"</span>;  </span><br><span class="line">renderText(result);</span><br></pre></td></tr></table></figure>
+<p>返回时数据用callback+()包上。</p>
+<h3 id="3-利用客户端解决方案改进跨域通信"><a href="#3-利用客户端解决方案改进跨域通信" class="headerlink" title="3. 利用客户端解决方案改进跨域通信"></a>3. 利用客户端解决方案改进跨域通信</h3><p><a href="http://www.ibm.com/developerworks/cn/web/wa-crossdomaincomm/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/web/wa-crossdomaincomm/</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Sencha-multi-langs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Sencha实现国际化，JS动态加载js、css文件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Android-ViewPage-in-ScrollView/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ScrollView内嵌ViewPager导致ViewPager滑动困难问题</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SOP-in-Java-JS" data-title="JAVA调用https, JS跨域请求，客户端解决JS跨域问题, SOP" data-url="http://yoursite.com/SOP-in-Java-JS/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+  </div>
+</body>
+</html>

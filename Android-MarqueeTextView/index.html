@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android文字跑马灯 | Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 继承TextView自定义控件123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354package com.anjoyo.musicplayer.define;  import android.content.Context;  import and">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android文字跑马灯">
+<meta property="og:url" content="http://yoursite.com/Android-MarqueeTextView/index.html">
+<meta property="og:site_name" content="Skyler's Blog">
+<meta property="og:description" content="1. 继承TextView自定义控件123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354package com.anjoyo.musicplayer.define;  import android.content.Context;  import and">
+<meta property="og:updated_time" content="2016-06-26T10:02:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android文字跑马灯">
+<meta name="twitter:description" content="1. 继承TextView自定义控件123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354package com.anjoyo.musicplayer.define;  import android.content.Context;  import and">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/links">链接们</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Android-MarqueeTextView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Android-MarqueeTextView/" class="article-date">
+  	<time datetime="2014-04-05T12:02:00.000Z" itemprop="datePublished">2014-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android文字跑马灯
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-继承TextView自定义控件"><a href="#1-继承TextView自定义控件" class="headerlink" title="1. 继承TextView自定义控件"></a>1. 继承TextView自定义控件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.anjoyo.musicplayer.define;  </span><br><span class="line"><span class="keyword">import</span> android.content.Context;  </span><br><span class="line"><span class="keyword">import</span> android.graphics.Rect;  </span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;  </span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MarqueeTextView</span> <span class="keyword">extends</span> <span class="title">TextView</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MarqueeTextView</span><span class="params">(Context context)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context);  </span><br><span class="line"><span class="comment">//      android:ellipsize="marquee"   </span></span><br><span class="line"><span class="comment">//      android:focusable="true"   </span></span><br><span class="line"><span class="comment">//      android:marqueeRepeatLimit="marquee_forever"   </span></span><br><span class="line"><span class="comment">//      android:focusableInTouchMode="true"   </span></span><br><span class="line"><span class="comment">//      android:scrollHorizontally="true"  </span></span><br><span class="line"><span class="comment">////      android:singleLine="true"  </span></span><br><span class="line"><span class="comment">//      setSingleLine(true);  </span></span><br><span class="line"><span class="comment">//      setEllipsize(TruncateAt.MARQUEE);  </span></span><br><span class="line"><span class="comment">//      setFocusable(true);  </span></span><br><span class="line"><span class="comment">//      setMarqueeRepeatLimit(Integer.MAX_VALUE);  </span></span><br><span class="line"><span class="comment">//      setFocusableInTouchMode(true);  </span></span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MarqueeTextView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyle);  </span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub  </span></span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MarqueeTextView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context, attrs);  </span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub  </span></span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onFocusChanged</span><span class="params">(<span class="keyword">boolean</span> focused, <span class="keyword">int</span> direction,  </span><br><span class="line">            Rect previouslyFocusedRect)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (focused) &#123;  </span><br><span class="line">            <span class="keyword">super</span>.onFocusChanged(focused, direction, previouslyFocusedRect);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onWindowFocusChanged</span><span class="params">(<span class="keyword">boolean</span> hasWindowFocus)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (hasWindowFocus) &#123;  </span><br><span class="line">            <span class="keyword">super</span>.onWindowFocusChanged(hasWindowFocus);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFocused</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-在布局中的使用"><a href="#2-在布局中的使用" class="headerlink" title="2. 在布局中的使用"></a>2. 在布局中的使用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.anjoyo.musicplayer.define.MarqueeTextView</span>  </span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/tv_folder_filepath"</span>  </span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span>  </span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"20dp"</span>  </span><br><span class="line">    <span class="attr">android:gravity</span>=<span class="string">"clip_vertical"</span>  </span><br><span class="line">        <span class="attr">style</span>=<span class="string">"@style/MarqueeTextView"</span>  </span><br><span class="line">        <span class="attr">android:textColor</span>=<span class="string">"#ffffff"</span>  </span><br><span class="line">        <span class="attr">android:textSize</span>=<span class="string">"12sp"</span>   </span><br><span class="line">    <span class="attr">android:layout_below</span>=<span class="string">"@+id/tv_folder_name"</span>  </span><br><span class="line"> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-style-xml"><a href="#3-style-xml" class="headerlink" title="3. style.xml"></a>3. style.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"MarqueeTextView"</span>&gt;</span><span class="xml">  </span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"white-space:pre"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:ellipsize"</span>&gt;</span>marquee<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:focusable"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:marqueeRepeatLimit"</span>&gt;</span>marquee_forever<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:focusableInTouchMode"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:scrollHorizontally"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:singleLine"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Android-Calculator/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Java实现表达式的运算-Android简易计算器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Android-Rolling-Lyrics/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android实现歌词滑动显示</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android-MarqueeTextView" data-title="Android文字跑马灯" data-url="http://yoursite.com/Android-MarqueeTextView/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+  </div>
+</body>
+</html>

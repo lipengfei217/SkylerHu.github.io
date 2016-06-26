@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>MQTT mosquitto的初步学习 | Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="mosquitto简介MQTT（MQ Telemetry Transport），消息队列遥测传输协议，轻量级的发布/订阅协议，适用于一些条件比较苛刻的环境，进行低带宽、不可靠或间歇性的通信。Mosquitto是一个开源(BSD许可证)的消息代理，实现MQTT(消息队列遥测传输)协议版本3.1。
+为每个MQTT消息头命令消息包含一个固定头，头只有两个字节，格式如下：
+
+参考：http://publi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MQTT mosquitto的初步学习">
+<meta property="og:url" content="http://yoursite.com/study-mosquitto/index.html">
+<meta property="og:site_name" content="Skyler's Blog">
+<meta property="og:description" content="mosquitto简介MQTT（MQ Telemetry Transport），消息队列遥测传输协议，轻量级的发布/订阅协议，适用于一些条件比较苛刻的环境，进行低带宽、不可靠或间歇性的通信。Mosquitto是一个开源(BSD许可证)的消息代理，实现MQTT(消息队列遥测传输)协议版本3.1。
+为每个MQTT消息头命令消息包含一个固定头，头只有两个字节，格式如下：
+
+参考：http://publi">
+<meta property="og:image" content="http://7xpdkx.com1.z0.glb.clouddn.com/2016/02/22/21c8ff27db.png">
+<meta property="og:updated_time" content="2016-06-26T10:19:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MQTT mosquitto的初步学习">
+<meta name="twitter:description" content="mosquitto简介MQTT（MQ Telemetry Transport），消息队列遥测传输协议，轻量级的发布/订阅协议，适用于一些条件比较苛刻的环境，进行低带宽、不可靠或间歇性的通信。Mosquitto是一个开源(BSD许可证)的消息代理，实现MQTT(消息队列遥测传输)协议版本3.1。
+为每个MQTT消息头命令消息包含一个固定头，头只有两个字节，格式如下：
+
+参考：http://publi">
+<meta name="twitter:image" content="http://7xpdkx.com1.z0.glb.clouddn.com/2016/02/22/21c8ff27db.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/links">链接们</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-study-mosquitto" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/study-mosquitto/" class="article-date">
+  	<time datetime="2014-05-07T14:44:00.000Z" itemprop="datePublished">2014-05-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MQTT mosquitto的初步学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MQTT/">MQTT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/">mosquitto</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="mosquitto简介"><a href="#mosquitto简介" class="headerlink" title="mosquitto简介"></a>mosquitto简介</h3><p>MQTT（MQ Telemetry Transport），消息队列遥测传输协议，轻量级的发布/订阅协议，适用于一些条件比较苛刻的环境，进行低带宽、不可靠或间歇性的通信。<br>Mosquitto是一个开源(BSD许可证)的消息代理，实现MQTT(消息队列遥测传输)协议版本3.1。</p>
+<p>为每个MQTT消息头命令消息包含一个固定头，头只有两个字节，格式如下：</p>
+<p><img src="http://7xpdkx.com1.z0.glb.clouddn.com/2016/02/22/21c8ff27db.png" alt="消息头"></p>
+<p>参考：<a href="http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#msg-format" target="_blank" rel="external">http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#msg-format</a></p>
+<h2 id="一、安装mosquitto服务"><a href="#一、安装mosquitto服务" class="headerlink" title="一、安装mosquitto服务"></a>一、安装mosquitto服务</h2><p>本文仅介绍mosquitto在Windows上的安装，Linux系统与之类似</p>
+<p>在mosquitto官网下载安装包<a href="http://mosquitto.org/files/binary/win32/mosquitto-1.2.3-install-win32.exe" target="_blank" rel="external">http://mosquitto.org/files/binary/win32/mosquitto-1.2.3-install-win32.exe</a><br>下载之后直接安装即可</p>
+<h2 id="二、配置和运行"><a href="#二、配置和运行" class="headerlink" title="二、配置和运行"></a>二、配置和运行</h2><p>可参照<a href="http://www.cnblogs.com/li-baibo/archive/2013/01/21/2869225.html" target="_blank" rel="external">http://www.cnblogs.com/li-baibo/archive/2013/01/21/2869225.html</a></p>
+<h2 id="三、在客户端的使用（Java）"><a href="#三、在客户端的使用（Java）" class="headerlink" title="三、在客户端的使用（Java）"></a>三、在客户端的使用（Java）</h2><p>pc 端客户端，下载地址：<a href="http://download.csdn.net/detail/kuailebeihun/7312947" target="_blank" rel="external">http://download.csdn.net/detail/kuailebeihun/7312947</a><br>解压，运行\ia92\J2SE\wmqttSample.jar即可</p>
+<h3 id="1-客户端使用的库"><a href="#1-客户端使用的库" class="headerlink" title="1. 客户端使用的库"></a>1. 客户端使用的库</h3><p>下载地址：<a href="http://download.csdn.net/detail/kuailebeihun/7312731" target="_blank" rel="external">http://download.csdn.net/detail/kuailebeihun/7312731</a>（JDK环境1.6及以上，若以下请下载源码开发）</p>
+<h3 id="2-客户端-库-的源码"><a href="#2-客户端-库-的源码" class="headerlink" title="2. 客户端 库 的源码"></a>2. 客户端 库 的源码</h3><p>下载地址：<a href="http://download.csdn.net/detail/kuailebeihun/7312743" target="_blank" rel="external">http://download.csdn.net/detail/kuailebeihun/7312743</a></p>
+<h3 id="3-具体使用"><a href="#3-具体使用" class="headerlink" title="3.  具体使用"></a>3.  具体使用</h3><h4 id="（1）消息质量"><a href="#（1）消息质量" class="headerlink" title="（1）消息质量"></a>（1）消息质量</h4><p>0： “至多一次”，消息发布完全依赖底层 TCP/IP 网络。会发生消息丢失或重复。这一级别可用于如下情况，环境传感器数据，丢失一次读记录无所谓，因为不久后还会有第二次发送；<br>1 ：“至少一次”，确保消息到达，但消息重复可能会发生；<br>2：“只有一次”，确保消息到达一次。这一级别可用于如下情况，在计费系统中，消息重复或丢失会导致不正确的结果。</p>
+<h4 id="（2）消息主题"><a href="#（2）消息主题" class="headerlink" title="（2）消息主题"></a>（2）消息主题</h4><p>构建一个应用程序时,主题树的设计应考虑以下主题名称的语法和语义的原则:<br>主题必须至少一个字符长；　　<br>  主题名称是区分大小写的，例如,A和a是两个不同的主题；<br>  “/”创造了一个独特的主题，例如,/a与a是不同的主题。/a匹配“+/+”和“/+”,但不匹配“+”；　<br>  任何主题不包含空字符(Unicode \ x0000)。　　</p>
+<p>  以下原则适用于主题树的结构和内容: 　　　　<br>  64 k的长度是有限的,但在没有限制水平主题树的数量。　　<br>  可以有任意数量的根节点,也就是说,可以有任意数量的主题树。</p>
+<h4 id="3-subscribe订阅"><a href="#3-subscribe订阅" class="headerlink" title="(3) subscribe订阅"></a>(3) subscribe订阅</h4><p>使用正斜杠(/)分隔主题树中的每个级别,并提供一个主题空间的层次结构。主题层面分离器的使用中遇到两个通配符时重要的主题由用户指定。</p>
+<p>数字符号(#)是一个通配符匹配任意数量的水平在一个主题，只能用在最后，如a/#/c是不合法的<br>例如,如果你订阅a/b/c/#,你在这些主题接收消息：<br>a/b/c<br>a/b/c/d<br>a/b/c/e</p>
+<p>加号(+)是一个通配符匹配的主题只有一个水平<br>例如,如果你订阅a/+/c/#,你在这些主题:接收消息：<br> a/a/c/<br>a/b/c/d<br>a/c/c/e</p>
+<p><strong>若订阅”+/#”，此主题可接受所有类型主题的消息</strong></p>
+<h4 id="4-publish发布"><a href="#4-publish发布" class="headerlink" title="(4) publish发布"></a>(4) publish发布</h4><p>发布的时候主题时，+或者#不能通配，是且仅是一个明确的主题。</p>
+<p><strong><span style="clolor: #ff0000;">贴上一段简单代码</span></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.MqttCallback;  </span><br><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.MqttClient;  </span><br><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.MqttConnectOptions;  </span><br><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.MqttDeliveryToken;  </span><br><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.MqttException;  </span><br><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.MqttMessage;  </span><br><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.MqttSecurityException;  </span><br><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.MqttTopic;  </span><br><span class="line"><span class="keyword">import</span> org.eclipse.paho.client.mqttv3.internal.MemoryPersistence;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/**  </span><br><span class="line"> *  </span><br><span class="line"> * <span class="doctag">@author</span> LP by 2014-04-24 </span><br><span class="line"> * </span><br><span class="line"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MqttServiceClient</span> <span class="keyword">implements</span> <span class="title">MqttCallback</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String MQTT_HOST = <span class="string">"tcp://192.168.12.38:1883"</span>;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String MQTT_CLIENT = <span class="string">"Test_"</span>;  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MqttServiceClient mqttServiceClient = <span class="keyword">null</span>;  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">private</span> MqttClient client = <span class="keyword">null</span>;  </span><br><span class="line">    <span class="keyword">private</span> MqttConnectOptions options = <span class="keyword">null</span>;  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/** </span><br><span class="line">     * 单例模式构造类 </span><br><span class="line">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MqttServiceClient <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (mqttServiceClient == <span class="keyword">null</span>) &#123;  </span><br><span class="line">            mqttServiceClient = <span class="keyword">new</span> MqttServiceClient();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> mqttServiceClient;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MqttServiceClient</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"init MQTTClientService"</span>);  </span><br><span class="line">        init();  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="comment">// The major API implementation follows :-  </span></span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span><br><span class="line">     * 初始化 </span><br><span class="line">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">          </span><br><span class="line">            <span class="comment">// host为主机名，test为clientid即连接MQTT的客户端ID，一般以客户端唯一标识符表示，MemoryPersistence设置clientid的保存形式，默认为以内存保存  </span></span><br><span class="line">            client = <span class="keyword">new</span> MqttClient(MQTT_HOST, MQTT_CLIENT, <span class="keyword">new</span> MemoryPersistence());  </span><br><span class="line">            <span class="comment">// MQTT的连接设置  </span></span><br><span class="line">            options = <span class="keyword">new</span> MqttConnectOptions();  </span><br><span class="line">            <span class="comment">// 设置是否清空session,这里如果设置为false表示服务器会保留客户端的连接记录，这里设置为true表示每次连接到服务器都以新的身份连接  </span></span><br><span class="line">            options.setCleanSession(<span class="keyword">true</span>);  </span><br><span class="line">            <span class="comment">// 设置连接的用户名  </span></span><br><span class="line">            <span class="comment">// options.setUserName(userName);  </span></span><br><span class="line">            <span class="comment">// 设置连接的密码  </span></span><br><span class="line">            <span class="comment">// options.setPassword(passWord.toCharArray());  </span></span><br><span class="line">            <span class="comment">// 设置超时时间 单位为秒  </span></span><br><span class="line">            options.setConnectionTimeout(<span class="number">50</span>);  </span><br><span class="line">            <span class="comment">// 设置会话心跳时间 单位为秒 服务器会每隔1.5*20秒的时间向客户端发送个消息判断客户端是否在线，但这个方法并没有重连的机制  </span></span><br><span class="line">            options.setKeepAliveInterval(<span class="number">30</span>);  </span><br><span class="line">            <span class="comment">// 设置回调  </span></span><br><span class="line">            client.setCallback(<span class="keyword">this</span>);  </span><br><span class="line">              </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="comment">/** </span><br><span class="line">     * 连接到MQTT </span><br><span class="line">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"Start connect----------"</span>);  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            client.connect(options);  </span><br><span class="line">            <span class="comment">//订阅主题的方法，2为消息的质量  </span></span><br><span class="line">            client.subscribe(<span class="string">"+/#"</span>, <span class="number">2</span>);  </span><br><span class="line">            <span class="comment">//发送消息  </span></span><br><span class="line">            publish(<span class="string">"test"</span>, <span class="string">"撒打发水电费水电费"</span>);  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/** </span><br><span class="line">     * 断开连接到MQTT </span><br><span class="line">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disconnect</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"Start disconnect----------"</span>);  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            client.disconnect();  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (MqttSecurityException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (MqttException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**  </span><br><span class="line">     * 发布消息 </span><br><span class="line">     * <span class="doctag">@param</span> topic 主题 </span><br><span class="line">     * <span class="doctag">@param</span> msg 消息 </span><br><span class="line">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">publish</span><span class="params">(String topic, String msg)</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"Start publish----------"</span>);  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            MqttTopic mqttTopic = client.getTopic(topic);  </span><br><span class="line">            <span class="comment">//2为消息的质量  </span></span><br><span class="line">            MqttDeliveryToken messageToken = mqttTopic.publish(msg.getBytes(), <span class="number">2</span>, <span class="keyword">true</span>);  </span><br><span class="line">            System.out.println(<span class="string">"publish success==&gt;"</span>+messageToken.getMessage());  </span><br><span class="line"><span class="comment">//          client.publish(topic, 2, msg);  </span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line"><span class="comment">// -------------------------------------------------回调方法------------------------------------------------------------//  </span></span><br><span class="line">      </span><br><span class="line">    <span class="comment">/**  </span><br><span class="line">     * 连接断开触发此方法 </span><br><span class="line">     */</span>  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connectionLost</span><span class="params">(Throwable cause)</span> </span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"Connection Lost----------&gt;"</span> + cause.getMessage());  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**  </span><br><span class="line">     * 消息达到触发此方法 </span><br><span class="line">     */</span>  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">messageArrived</span><span class="params">(MqttTopic topic, MqttMessage message)</span>  </span><br><span class="line">            <span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">        System.out.println(topic + <span class="string">":"</span> + message.toString());  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span><br><span class="line">     * 消息发送成功触发此方法 </span><br><span class="line">     */</span>  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliveryComplete</span><span class="params">(MqttDeliveryToken token)</span>  </span>&#123;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            System.out.println(<span class="string">"deliveryComplete---------"</span> + token.getMessage());  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (MqttException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span><span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">          </span><br><span class="line">        MqttServiceClient.getInstance().disconnect();  </span><br><span class="line">        MqttServiceClient.getInstance().connect();  </span><br><span class="line">          </span><br><span class="line">        <span class="keyword">new</span> Thread() &#123;  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                <span class="keyword">int</span> count = <span class="number">0</span>;  </span><br><span class="line">                <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;  </span><br><span class="line">                    <span class="keyword">try</span> &#123;  </span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>*<span class="number">3</span>);  </span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">                        e.printStackTrace();  </span><br><span class="line">                    &#125;  </span><br><span class="line">                    MqttServiceClient.getInstance().publish(<span class="string">"AAA"</span>, <span class="string">"hello world ! count="</span> + count);  </span><br><span class="line">                    count ++;  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;;  </span><br><span class="line">        &#125;.start();  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/use-fastjson_v1_1_33-has-error/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          fastjson使用public修饰 private转化Object有问题 注意事项
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Java-Binary-Tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java先序序列构造二叉树</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="study-mosquitto" data-title="MQTT mosquitto的初步学习" data-url="http://yoursite.com/study-mosquitto/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+  </div>
+</body>
+</html>

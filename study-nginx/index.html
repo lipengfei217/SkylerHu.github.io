@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Linux(SUSE) nginx反向代理配置，负载均衡 | Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 安装jdksudo rpm -ivh jdk-7u71-linux-x64.rpm
+设置环境变量：vim /etc/profile
+在底部加入：
+$set java environment
+1234JAVA_HOME=/usr/java/jdk1.7.0_71CLASSPATH=.:$JAVA_HOME/lib/tools.jarPATH=$JAVA_HOME/bin:$PATHexport">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux(SUSE) nginx反向代理配置，负载均衡">
+<meta property="og:url" content="http://yoursite.com/study-nginx/index.html">
+<meta property="og:site_name" content="Skyler's Blog">
+<meta property="og:description" content="1. 安装jdksudo rpm -ivh jdk-7u71-linux-x64.rpm
+设置环境变量：vim /etc/profile
+在底部加入：
+$set java environment
+1234JAVA_HOME=/usr/java/jdk1.7.0_71CLASSPATH=.:$JAVA_HOME/lib/tools.jarPATH=$JAVA_HOME/bin:$PATHexport">
+<meta property="og:updated_time" content="2016-06-26T10:52:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux(SUSE) nginx反向代理配置，负载均衡">
+<meta name="twitter:description" content="1. 安装jdksudo rpm -ivh jdk-7u71-linux-x64.rpm
+设置环境变量：vim /etc/profile
+在底部加入：
+$set java environment
+1234JAVA_HOME=/usr/java/jdk1.7.0_71CLASSPATH=.:$JAVA_HOME/lib/tools.jarPATH=$JAVA_HOME/bin:$PATHexport">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/links">链接们</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-study-nginx" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/study-nginx/" class="article-date">
+  	<time datetime="2015-01-01T01:04:00.000Z" itemprop="datePublished">2015-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux(SUSE) nginx反向代理配置，负载均衡
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装jdk"><a href="#1-安装jdk" class="headerlink" title="1. 安装jdk"></a>1. 安装jdk</h3><p>sudo rpm -ivh jdk-7u71-linux-x64.rpm</p>
+<p>设置环境变量：<br>vim /etc/profile</p>
+<p>在底部加入：</p>
+<p><strong>$set java environment</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/java/jdk1.7.0_71</span><br><span class="line">CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line">PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
+<pre><code>vim /etc/profile.d/java.sh
+</code></pre><p>加入：</p>
+<p><strong>$set java environment</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/java/jdk1.7.0_71</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib/tools.jar</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装包准备"><a href="#2-安装包准备" class="headerlink" title="2. 安装包准备"></a>2. 安装包准备</h3><p>下载地址：<a href="http://download.csdn.net/detail/kuailebeihun/8318449" target="_blank" rel="external">http://download.csdn.net/detail/kuailebeihun/8318449</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf </span><br><span class="line">tar -zxvf nginx-1.7.8.tar.gz</span><br><span class="line">tar -zxvf openssl-1.0.0o.tar.gz </span><br><span class="line">tar -zxvf zlib-1.2.8.tar.gz</span><br></pre></td></tr></table></figure>
+<p>先下载好zlib和openssl<br>编译nginx时，联合编译zlib和openssl</p>
+<h3 id="3-编译安装zlib"><a href="#3-编译安装zlib" class="headerlink" title="3. 编译安装zlib"></a>3. 编译安装zlib</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> zlib-1.2.8/</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h3 id="4-编译安装openssl"><a href="#4-编译安装openssl" class="headerlink" title="4. 编译安装openssl"></a>4. 编译安装openssl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> openssl-1.0.0o/</span><br><span class="line">./config</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="5-编译安装pcre"><a href="#5-编译安装pcre" class="headerlink" title="5. 编译安装pcre"></a>5. 编译安装pcre</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> pcre-8.12/</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="6-联合编译安装nginx"><a href="#6-联合编译安装nginx" class="headerlink" title="6. 联合编译安装nginx"></a>6. 联合编译安装nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> nginx-1.7.8</span><br><span class="line">$ ./configure --user=nobody --group=nobody --prefix=/usr/<span class="built_in">local</span>/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=/data/moa/pcre-8.12 --with-openssl=/data/moa/openssl-1.0.0o</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
+<p>vi objs/Makefile</p>
+<pre><code>查找configure --disable-shared,在1158行,删除./configure --disable-shared, 保存
+    :st nu可显示行号
+    :1089直接跳到1158行，:/configure可以搜索
+
+make &amp;&amp; make install
+</code></pre><h3 id="7-nginx配置"><a href="#7-nginx配置" class="headerlink" title="7. nginx配置"></a>7. nginx配置</h3><pre><code>cd /usr/local/webserver/nginx/
+</code></pre><p>配置</p>
+<pre><code>vim conf/nginx.conf
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">gzip  on;</span><br><span class="line">	upstream  wplay &#123;</span><br><span class="line">	server 192.168.11.6:80;</span><br><span class="line">&#125;</span><br><span class="line">location / &#123;</span><br><span class="line">	proxy_pass http://wplay;</span><br><span class="line">	proxy_redirect     off;</span><br><span class="line">	proxy_set_header   Host             $host;</span><br><span class="line">	proxy_set_header   X-Real-IP        $remote_addr;</span><br><span class="line">	proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">	proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;</span><br><span class="line">	proxy_max_temp_file_size 0;</span><br><span class="line">	proxy_connect_timeout      90;</span><br><span class="line">	proxy_send_timeout         90;</span><br><span class="line">	proxy_read_timeout         90;</span><br><span class="line">	proxy_buffer_size          4k;</span><br><span class="line">	proxy_buffers              4 32k;</span><br><span class="line">	proxy_busy_buffers_size    64k;</span><br><span class="line">	proxy_temp_file_write_size 64k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-启动、重启命令"><a href="#8-启动、重启命令" class="headerlink" title="8.启动、重启命令"></a>8.启动、重启命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cd</span> sbin/</span><br><span class="line">./nginx</span><br></pre></td></tr></table></figure>
+<p>重启</p>
+<pre><code>nginx -s reload
+</code></pre><h3 id="9-参考资料"><a href="#9-参考资料" class="headerlink" title="9. 参考资料"></a>9. 参考资料</h3><ul>
+<li><a href="http://blog.csdn.net/superbirds/article/details/7290504" target="_blank" rel="external">http://blog.csdn.net/superbirds/article/details/7290504</a></li>
+<li><a href="http://www.bananawolf.com/html/2012/09/831.html" target="_blank" rel="external">http://www.bananawolf.com/html/2012/09/831.html</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/study-redis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Linux(SUSE)Redis服务的安装使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Linux-NFS-mount/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux(SUSE) NFS mount挂载</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="study-nginx" data-title="Linux(SUSE) nginx反向代理配置，负载均衡" data-url="http://yoursite.com/study-nginx/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+  </div>
+</body>
+</html>

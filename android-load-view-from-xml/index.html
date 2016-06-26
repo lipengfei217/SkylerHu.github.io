@@ -4,17 +4,33 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/6 | Skyler&#39;s Blog</title>
+  <title>Android动态加载View的几种方法 | Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="No pains, No gains!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Skyler's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/06/index.html">
+  <meta name="description" content="Android
+加载View
+
+有以下加载方式
+
+View view = LayoutInflater.from(context).inflate(要装载的界面的id, 根节点);//context为this,根节点一般为nullview.findViewByID();//与inflate配套使用的。setContentView();//配套使用findViewByID(动态界面中的控件的id)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android动态加载View的几种方法">
+<meta property="og:url" content="http://yoursite.com/android-load-view-from-xml/index.html">
 <meta property="og:site_name" content="Skyler's Blog">
-<meta property="og:description" content="No pains, No gains!">
+<meta property="og:description" content="Android
+加载View
+
+有以下加载方式
+
+View view = LayoutInflater.from(context).inflate(要装载的界面的id, 根节点);//context为this,根节点一般为nullview.findViewByID();//与inflate配套使用的。setContentView();//配套使用findViewByID(动态界面中的控件的id)">
+<meta property="og:updated_time" content="2016-06-26T09:39:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Skyler's Blog">
-<meta name="twitter:description" content="No pains, No gains!">
+<meta name="twitter:title" content="Android动态加载View的几种方法">
+<meta name="twitter:description" content="Android
+加载View
+
+有以下加载方式
+
+View view = LayoutInflater.from(context).inflate(要装载的界面的id, 根节点);//context为this,根节点一般为nullview.findViewByID();//与inflate配套使用的。setContentView();//配套使用findViewByID(动态界面中的控件的id)">
   
     <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
   
@@ -166,115 +182,115 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-android-load-view-from-xml" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/android-load-view-from-xml/" class="article-date">
+  	<time datetime="2014-04-05T10:57:00.000Z" itemprop="datePublished">2014-04-05</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android动态加载View的几种方法
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/ownclound-disable-fileicon-on-mac/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:58:51.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/ownclound-disable-fileicon-on-mac/">owncloud在mac finder中没有显示状态icon</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Android</li>
+<li>加载View</li>
+</ul>
+<p>有以下加载方式</p>
+<ol>
+<li><p>View view = LayoutInflater.from(context).inflate(要装载的界面的id, 根节点);//context为this,根节点一般为null<br>view.findViewByID();//与inflate配套使用的。<br>setContentView();//配套使用findViewByID(动态界面中的控件的id);</p>
+</li>
+<li><p>LayoutInflater inflater = ((Activity)context).getLayoutInflater();</p>
+</li>
+</ol>
+<ol>
+<li><p>另一种方法获得<br>LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVER);<br>view = inflater.inflater (resource, root);</p>
+</li>
+<li><p>view = View.inflate(context, R.layout.header, null);</p>
+</li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/owncloud/">owncloud</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Android-set-dialog-style/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android自定义Dialog 软键盘、大小的设置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Sencha-ImageField/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sencha自定义ImageField用于表单中显示图片</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Shadowsocks-SwitchySharp/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:56:08.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Shadowsocks-SwitchySharp/">Shadowsocks+SwitchySharp</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shadowsocks/">Shadowsocks</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Ubuntu-VPN/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:46:54.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Ubuntu-VPN/">Ubuntu搭建VPN</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">VPN</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-load-view-from-xml" data-title="Android动态加载View的几种方法" data-url="http://yoursite.com/android-load-view-from-xml/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-    
+
+
 
 </div>
       <footer id="footer">
@@ -300,8 +316,8 @@
 		mathjax: true,
 		animate: undefined,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: undefined

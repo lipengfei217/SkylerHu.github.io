@@ -4,17 +4,33 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/6 | Skyler&#39;s Blog</title>
+  <title>git仓库迁移 | Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="No pains, No gains!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Skyler's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/06/index.html">
+  <meta name="description" content="已有项目名为trainingHub
+新的gitlab服务器地址github.com
+新的gitlab服务中的User为Skyler
+1. 第一步在自己的gitlab后台建立一个新的项目，其地址为git@github.com:Skyler/trainingHub.git
+2. 第二步进入本地的trainingHub目录，然后执行下面两个命令：
+12git remote remove origingi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git仓库迁移">
+<meta property="og:url" content="http://yoursite.com/git-change-remote-address/index.html">
 <meta property="og:site_name" content="Skyler's Blog">
-<meta property="og:description" content="No pains, No gains!">
+<meta property="og:description" content="已有项目名为trainingHub
+新的gitlab服务器地址github.com
+新的gitlab服务中的User为Skyler
+1. 第一步在自己的gitlab后台建立一个新的项目，其地址为git@github.com:Skyler/trainingHub.git
+2. 第二步进入本地的trainingHub目录，然后执行下面两个命令：
+12git remote remove origingi">
+<meta property="og:updated_time" content="2016-06-26T10:49:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Skyler's Blog">
-<meta name="twitter:description" content="No pains, No gains!">
+<meta name="twitter:title" content="git仓库迁移">
+<meta name="twitter:description" content="已有项目名为trainingHub
+新的gitlab服务器地址github.com
+新的gitlab服务中的User为Skyler
+1. 第一步在自己的gitlab后台建立一个新的项目，其地址为git@github.com:Skyler/trainingHub.git
+2. 第二步进入本地的trainingHub目录，然后执行下面两个命令：
+12git remote remove origingi">
   
     <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
   
@@ -166,115 +182,109 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-git-change-remote-address" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/git-change-remote-address/" class="article-date">
+  	<time datetime="2016-01-02T08:11:00.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git仓库迁移
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/ownclound-disable-fileicon-on-mac/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:58:51.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/ownclound-disable-fileicon-on-mac/">owncloud在mac finder中没有显示状态icon</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>已有项目名为<code>trainingHub</code></p>
+<p>新的gitlab服务器地址<code>github.com</code></p>
+<p>新的gitlab服务中的User为<code>Skyler</code></p>
+<h3 id="1-第一步"><a href="#1-第一步" class="headerlink" title="1. 第一步"></a>1. 第一步</h3><p>在自己的gitlab后台建立一个新的项目，其地址为<code>git@github.com:Skyler/trainingHub.git</code></p>
+<h3 id="2-第二步"><a href="#2-第二步" class="headerlink" title="2. 第二步"></a>2. 第二步</h3><p>进入本地的<code>trainingHub</code>目录，然后执行下面两个命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote remove origin</span><br><span class="line">git remote add origin git@github.com:Skyler/trainingHub.git</span><br></pre></td></tr></table></figure>
+<h3 id="3-最后直接pull、push"><a href="#3-最后直接pull、push" class="headerlink" title="3. 最后直接pull、push"></a>3. 最后直接<code>pull</code>、<code>push</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote remove origin</span><br><span class="line">git remote add origin git@gitlab.pookor.com:Skyler/trainingHub.git</span><br></pre></td></tr></table></figure>
+<h5 id="若是有多个分支需要迁移"><a href="#若是有多个分支需要迁移" class="headerlink" title="若是有多个分支需要迁移"></a>若是有多个分支需要迁移</h5><p><strong>git remote add <code>branch_name</code> git@gitlab.pookor.com:Skyler/trainingHub.git</strong></p>
+<h5 id="push所有分支"><a href="#push所有分支" class="headerlink" title="push所有分支"></a>push所有分支</h5><p><code>git push --all origin</code></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>可强制覆盖远程服务器</p>
+<p><code>git push --all --force origin</code></p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/owncloud/">owncloud</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Ubuntu-VPN/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Ubuntu搭建VPN
+        
+      </div>
+    </a>
+  
+  
+    <a href="/study-redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux(SUSE)Redis服务的安装使用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Shadowsocks-SwitchySharp/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:56:08.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Shadowsocks-SwitchySharp/">Shadowsocks+SwitchySharp</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shadowsocks/">Shadowsocks</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Ubuntu-VPN/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:46:54.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Ubuntu-VPN/">Ubuntu搭建VPN</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">VPN</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="git-change-remote-address" data-title="git仓库迁移" data-url="http://yoursite.com/git-change-remote-address/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-    
+
+
 
 </div>
       <footer id="footer">
@@ -300,8 +310,8 @@
 		mathjax: true,
 		animate: undefined,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: undefined

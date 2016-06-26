@@ -4,17 +4,36 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/6 | Skyler&#39;s Blog</title>
+  <title>Android TabHost的三中实现方式 | Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="No pains, No gains!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Skyler's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/06/index.html">
+  <meta name="description" content="Android
+TabHost
+
+1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高此时的setup可以省略不写
+2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）layout.xml
+&amp;lt;TabHost &amp;gt;
+    &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;    &amp;lt;/span&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android TabHost的三中实现方式">
+<meta property="og:url" content="http://yoursite.com/Android-TabHost/index.html">
 <meta property="og:site_name" content="Skyler's Blog">
-<meta property="og:description" content="No pains, No gains!">
+<meta property="og:description" content="Android
+TabHost
+
+1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高此时的setup可以省略不写
+2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）layout.xml
+&amp;lt;TabHost &amp;gt;
+    &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;    &amp;lt;/span&amp;">
+<meta property="og:updated_time" content="2016-06-26T09:55:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Skyler's Blog">
-<meta name="twitter:description" content="No pains, No gains!">
+<meta name="twitter:title" content="Android TabHost的三中实现方式">
+<meta name="twitter:description" content="Android
+TabHost
+
+1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高此时的setup可以省略不写
+2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）layout.xml
+&amp;lt;TabHost &amp;gt;
+    &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;    &amp;lt;/span&amp;">
   
     <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
   
@@ -166,115 +185,116 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Android-TabHost" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/Android-TabHost/" class="article-date">
+  	<time datetime="2014-04-05T11:19:00.000Z" itemprop="datePublished">2014-04-05</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android TabHost的三中实现方式
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/ownclound-disable-fileicon-on-mac/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:58:51.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/ownclound-disable-fileicon-on-mac/">owncloud在mac finder中没有显示状态icon</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Android</li>
+<li>TabHost</li>
+</ul>
+<h5 id="1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高"><a href="#1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高" class="headerlink" title="1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高"></a>1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高</h5><p>此时的setup可以省略不写</p>
+<h5 id="2-继承Activity自定义TabHost，自己写布局（此方法最为常用）"><a href="#2-继承Activity自定义TabHost，自己写布局（此方法最为常用）" class="headerlink" title="2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）"></a>2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）</h5><p>layout.xml</p>
+<pre><code>&lt;TabHost &gt;
+    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;TabWidget &gt;&lt;/TabWidget&gt;
+    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;FrameLayout &gt;
+    &lt;span style=&quot;white-space:pre&quot;&gt;        &lt;/span&gt;&lt;LinearLayout &gt;&lt;/LinearLayout&gt;
+    &lt;span style=&quot;white-space:pre&quot;&gt;        &lt;/span&gt;&lt;LinearLayout &gt;&lt;/LinearLayout&gt;
+        ...
+    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;/FrameLayout&gt;
+&lt;/TabHost&gt;
+</code></pre><p>Activity.class</p>
+<pre><code>TabHost tabHost = (TabHost)findViewByID();  
+tabHost.setup();      //此时的setup不可省略不写
+</code></pre><h5 id="3-继承ActivityGroup，结合RadioButton-和FrameLayout-实现TabHost"><a href="#3-继承ActivityGroup，结合RadioButton-和FrameLayout-实现TabHost" class="headerlink" title="3. 继承ActivityGroup，结合RadioButton(和FrameLayout)实现TabHost"></a>3. 继承ActivityGroup，结合RadioButton(和FrameLayout)实现TabHost</h5><p>需有mTabHost.setup(getLocalActivityManager());</p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/owncloud/">owncloud</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Android-storage/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android的五中数据存储方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Android-set-dialog-style/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android自定义Dialog 软键盘、大小的设置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Shadowsocks-SwitchySharp/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:56:08.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Shadowsocks-SwitchySharp/">Shadowsocks+SwitchySharp</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shadowsocks/">Shadowsocks</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Ubuntu-VPN/" class="archive-article-date">
-  	<time datetime="2016-06-26T10:46:54.000Z" itemprop="datePublished">Jun 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Ubuntu-VPN/">Ubuntu搭建VPN</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">VPN</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android-TabHost" data-title="Android TabHost的三中实现方式" data-url="http://yoursite.com/Android-TabHost/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-    
+
+
 
 </div>
       <footer id="footer">
@@ -300,8 +320,8 @@
 		mathjax: true,
 		animate: undefined,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: undefined

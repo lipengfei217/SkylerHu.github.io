@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Ubuntu搭建VPN | Skyler&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分享链接：http://www.digitalocean.com/?refcode=a80754a9aac2若要申请VPS可使用这个链接，会赠送你10$费用可以购买VPS。
+
+采用PPTP搭建VPN，优点是配置简单快捷。将亲身过程记录下来供亲们参考，并将过程中遇到的问题也一一列举出来解决方式。。。
+直接上步骤:
+1.第一步需要安装PPTP，以用来提供VPN服务.1sudo apt-get inst">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu搭建VPN">
+<meta property="og:url" content="http://yoursite.com/Ubuntu-VPN/index.html">
+<meta property="og:site_name" content="Skyler's Blog">
+<meta property="og:description" content="分享链接：http://www.digitalocean.com/?refcode=a80754a9aac2若要申请VPS可使用这个链接，会赠送你10$费用可以购买VPS。
+
+采用PPTP搭建VPN，优点是配置简单快捷。将亲身过程记录下来供亲们参考，并将过程中遇到的问题也一一列举出来解决方式。。。
+直接上步骤:
+1.第一步需要安装PPTP，以用来提供VPN服务.1sudo apt-get inst">
+<meta property="og:updated_time" content="2016-06-26T10:55:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu搭建VPN">
+<meta name="twitter:description" content="分享链接：http://www.digitalocean.com/?refcode=a80754a9aac2若要申请VPS可使用这个链接，会赠送你10$费用可以购买VPS。
+
+采用PPTP搭建VPN，优点是配置简单快捷。将亲身过程记录下来供亲们参考，并将过程中遇到的问题也一一列举出来解决方式。。。
+直接上步骤:
+1.第一步需要安装PPTP，以用来提供VPN服务.1sudo apt-get inst">
+  
+    <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Skyler Hu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pains, No gains!</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/links">链接们</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Skyler Hu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://7xpdkx.com1.z0.glb.clouddn.com/image/icon/skyler.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Skyler Hu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pains, No gains!</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/links">链接们</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/SkylerHu" title="github">github</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/skyler.hulp" title="facebook">facebook</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Ubuntu-VPN" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Ubuntu-VPN/" class="article-date">
+  	<time datetime="2016-06-26T10:46:54.000Z" itemprop="datePublished">2016-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu搭建VPN
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">VPN</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="分享链接：http-www-digitalocean-com-refcode-a80754a9aac2"><a href="#分享链接：http-www-digitalocean-com-refcode-a80754a9aac2" class="headerlink" title="分享链接：http://www.digitalocean.com/?refcode=a80754a9aac2"></a>分享链接：<a href="http://www.digitalocean.com/?refcode=a80754a9aac2" target="_blank" rel="external">http://www.digitalocean.com/?refcode=a80754a9aac2</a></h3><p>若要申请VPS可使用这个链接，会赠送你10$费用可以购买VPS。</p>
+<hr>
+<p>采用PPTP搭建VPN，优点是配置简单快捷。将亲身过程记录下来供亲们参考，并将过程中遇到的问题也一一列举出来解决方式。。。</p>
+<p>直接上步骤:</p>
+<h4 id="1-第一步需要安装PPTP，以用来提供VPN服务"><a href="#1-第一步需要安装PPTP，以用来提供VPN服务" class="headerlink" title="1.第一步需要安装PPTP，以用来提供VPN服务."></a>1.第一步需要安装PPTP，以用来提供VPN服务.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install pptpd</span><br></pre></td></tr></table></figure>
+<p>如果有问题的话比如提示找不到之类的，apt-get update 一下应该就可以了，然后再来一次就会自动完成安装。</p>
+<h4 id="2-装好了之后我们需要进行配置一下以让它可以使用"><a href="#2-装好了之后我们需要进行配置一下以让它可以使用" class="headerlink" title="2.装好了之后我们需要进行配置一下以让它可以使用."></a>2.装好了之后我们需要进行配置一下以让它可以使用.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/pptpd.conf</span><br></pre></td></tr></table></figure>
+<p>取消掉以下 2 行的注释：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localip 192.168.0.1</span><br><span class="line">remoteip 192.168.0.234-238,192.168.0.245</span><br></pre></td></tr></table></figure>
+<p>分别是通过VPN连接后主机和客户端所使用的IP，可以自行修改。注意这个IP在下面还会用的到。</p>
+<h4 id="3-然后我们需要分配账号给自己使用"><a href="#3-然后我们需要分配账号给自己使用" class="headerlink" title="3.然后我们需要分配账号给自己使用."></a>3.然后我们需要分配账号给自己使用.</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ppp/chap-secrets</span><br></pre></td></tr></table></figure>
+<p>这个是用户列表文件</p>
+<p>在里面添加账户按如下格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username  pptpd  <span class="string">"password"</span>  *</span><br></pre></td></tr></table></figure>
+<p><code>username</code>为你的用户名<code>password</code>为你的密码，密码用引号引起,最后的<code>*</code>号表示允许在任意IP连接到服务</p>
+<h4 id="4-至此服务弄好了"><a href="#4-至此服务弄好了" class="headerlink" title="4.至此服务弄好了"></a>4.至此服务弄好了</h4><p>如果你sudo service pptpd restart一下，就应该已经能连接到该VPN了，但是连接了之后会发现还访问不了外网。然后我们需要让他能访问外网。首先，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ppp/pptpd-options</span><br></pre></td></tr></table></figure>
+<p>找到ms-dns，取消掉注释，改成你喜欢的DNS比如8.8.8.8, 8.8.4.4</p>
+<h4 id="5-然后我们要开启内核IP转发"><a href="#5-然后我们要开启内核IP转发" class="headerlink" title="5.然后我们要开启内核IP转发"></a>5.然后我们要开启内核IP转发</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>取消掉 <code>net.ipv4.ip_forward=1</code> 这一行的注释.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<h4 id="6-然后我们需要安装iptables，用来实现请求的NAT转发"><a href="#6-然后我们需要安装iptables，用来实现请求的NAT转发" class="headerlink" title="6.然后我们需要安装iptables，用来实现请求的NAT转发"></a>6.然后我们需要安装iptables，用来实现请求的NAT转发</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install iptables</span><br></pre></td></tr></table></figure>
+<p>然后开启NAT转发.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING <span class="_">-s</span> 192.168.0.0/24 -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+<p>192.168.0.0/24是你在上面设置的IP段，让这个段转发</p>
+<p>注意eth0是你连接外网的那块网卡，不一定是0也有可能是1或者看你的机器哪块网卡连的外网了。这样就以NAT的方式请求外网的东西了。不知道你的机器哪块网卡连的外网的话ifconfig一下看看哪个网卡是外网IP就知道了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING <span class="_">-s</span> 192.168.217.0/24 -o eth0 -j MASQUERADE</span><br><span class="line">iptables-save &gt; /etc/iptables.pptp</span><br></pre></td></tr></table></figure>
+<p>只需执行上面的命令，下面的命令可以备用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -F	//清空所有规则</span><br><span class="line">iptables -t nat -vnL POSTROUTING --line-number   //查看nat表</span><br><span class="line">iptables -t nat -D POSTROUTING [num]	//删除nat表中postrouting的第一条规则</span><br></pre></td></tr></table></figure></p>
+<p>开启iptables转发</p>
+<p>在/etc/network/if-up.d/目录下创建iptables文件，内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\<span class="comment">#\!/bin/sh</span></span><br><span class="line">iptables-restore &lt; /etc/iptables.pptp</span><br></pre></td></tr></table></figure>
+<p>给脚本添加执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/network/<span class="keyword">if</span>-up.d/iptables</span><br></pre></td></tr></table></figure>
+<p>####7.最后，我们需要重启服务，让配置生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service pptpd restart</span><br><span class="line">/etc/init.d/pptpd restart</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Shadowsocks-SwitchySharp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Shadowsocks+SwitchySharp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/git-change-remote-address/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git仓库迁移</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Ubuntu-VPN" data-title="Ubuntu搭建VPN" data-url="http://yoursite.com/Ubuntu-VPN/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Skyler Hu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2503cc9e29eba24d28584a7506f1eab";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+  </div>
+</body>
+</html>
