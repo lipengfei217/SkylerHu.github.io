@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,147 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-hexo-Jekyll-github" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/hexo-Jekyll-github/" class="article-date">
+  	<time datetime="2016-06-27T07:41:41.000Z" itemprop="datePublished">2016-06-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/hexo-Jekyll-github/">hexo/Jekyll + github搭建自己的博客</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。</p>
+<h3 id="一、GitHub-Pages的使用"><a href="#一、GitHub-Pages的使用" class="headerlink" title="一、GitHub Pages的使用"></a>一、GitHub Pages的使用</h3><h4 id="1-创建一个分支，使用你的GitHub-name"><a href="#1-创建一个分支，使用你的GitHub-name" class="headerlink" title="1. 创建一个分支，使用你的GitHub name"></a>1. 创建一个分支，使用你的GitHub name</h4><p>Head over to GitHub and create a new repository named username.github.io, where username is your username (or organization name) on GitHub.</p>
+<p>我的GitHub name是 SkylerHu，以我的名字为例。</p>
+<h4 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h4><p><strong>若是借助Jekyll和hexo的话，只需clone下来即可。</strong></p>
+<blockquote>
+<p>已下步骤是基于terminal的git命令，若是使用界面工具，自己去<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>看</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~$ git <span class="built_in">clone</span> https://github.com/SkylerHu/SkylerHu.github.io</span><br><span class="line">~$ <span class="built_in">cd</span> SkylerHu.github.io</span><br><span class="line">~$ <span class="built_in">echo</span> <span class="string">"Hello World"</span> &gt; index.html</span><br><span class="line">~$ git add --all</span><br><span class="line">~$ git commit -m <span class="string">"Initial commit"</span></span><br><span class="line">~$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>也可以在index.html中添加HTML内容，然后在push</p>
+<p>一切OK之后，可以访问 <a href="http://SkylerHu.github.io" target="_blank" rel="external">http://SkylerHu.github.io</a>.  可以查看index.html的内容。这个网址就是你的博客网址。</p>
+<h3 id="二、使用Jekyll"><a href="#二、使用Jekyll" class="headerlink" title="二、使用Jekyll"></a>二、使用Jekyll</h3><p>上面新建的项目中，Settings中可以看到GitHubPages相关配置，官方推荐使用<a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll</a><br><img src="http://7xpdkx.com1.z0.glb.clouddn.com/2016/06/27/81479b8884.png" alt="GitHub Pages Settings"></p>
+<h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h4><p>安装需要Ruby环境，没有的话自行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ gem install jekyll</span><br><span class="line">~$ jekyll new my-awesome-site</span><br></pre></td></tr></table></figure>
+<p>把项目生成的所有文件，全部copy到<code>SkylerHu.github.io</code>目录下.</p>
+<h4 id="2-目录结构"><a href="#2-目录结构" class="headerlink" title="2. 目录结构"></a>2. 目录结构</h4><ul>
+<li><a href="http://jekyll.bootcss.com/docs/structure/" target="_blank" rel="external">目录结构</a></li>
+</ul>
+<h4 id="3-本地启动预览"><a href="#3-本地启动预览" class="headerlink" title="3. 本地启动预览"></a>3. 本地启动预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="built_in">cd</span> SkylerHu.github.io</span><br><span class="line">~/SkylerHu.github.io$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p>直接访问<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>  就可以看到你的网站了。</p>
+<h4 id="4-写文章"><a href="#4-写文章" class="headerlink" title="4. 写文章"></a>4. 写文章</h4><p>在目录<code>/SkylerHu.github.io/_posts/</code>下新建xxxx.md；<br>格式需要按照模板提供的去写； </p>
+<h4 id="5-部署"><a href="#5-部署" class="headerlink" title="5. 部署"></a>5. 部署</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/SkylerHu.github.io$ git add --all</span><br><span class="line">~/SkylerHu.github.io$ git push</span><br></pre></td></tr></table></figure>
+<h4 id="6-使用自己的域名"><a href="#6-使用自己的域名" class="headerlink" title="6. 使用自己的域名"></a>6. 使用自己的域名</h4><h5 id="1-添加CNAME文件push到GitHub"><a href="#1-添加CNAME文件push到GitHub" class="headerlink" title="1) 添加CNAME文件push到GitHub"></a>1) 添加CNAME文件push到GitHub</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/SkylerHu.github.io$ <span class="built_in">echo</span> <span class="string">"pages.skylerhu.com"</span> &gt; CNAME</span><br></pre></td></tr></table></figure>
+<h5 id="2-域名解析"><a href="#2-域名解析" class="headerlink" title="2) 域名解析"></a>2) 域名解析</h5><p>使pages.skylerhu.com解析到 SkylerHu.github.io<br>注意选择 解析类型是<code>CNAME</code></p>
+<h4 id="7-主题"><a href="#7-主题" class="headerlink" title="7. 主题"></a>7. 主题</h4><p>推荐网站：</p>
+<ul>
+<li><a href="http://jekyllthemes.org/" target="_blank" rel="external">http://jekyllthemes.org/</a></li>
+<li><a href="https://jekyllthemes.io/" target="_blank" rel="external">https://jekyllthemes.io/</a></li>
+</ul>
+<p>可以根据自己的喜好去选择主题，都大同小异。</p>
+<h3 id="三、使用hexo"><a href="#三、使用hexo" class="headerlink" title="三、使用hexo"></a>三、使用hexo</h3><p>之所有使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a>,因为好多网友都说这个比较好，所有研究了一下使用方法。</p>
+<p>需要安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></p>
+<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ sudo npm install-g hexo</span><br></pre></td></tr></table></figure>
+<h4 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2. 初始化"></a>2. 初始化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">~/blog$ hexo init</span><br><span class="line"><span class="comment"># 生成静态页面，把markdown转化成html，hexo g 也行</span></span><br><span class="line">~/blog$ hexo generate</span><br><span class="line"><span class="comment"># 启动本地服务，hexo s 也行</span></span><br><span class="line">~/blog$ hexo server</span><br></pre></td></tr></table></figure>
+<p>其他<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">hexo命令</a></p>
+<h4 id="3-配置GitHub"><a href="#3-配置GitHub" class="headerlink" title="3. 配置GitHub"></a>3. 配置GitHub</h4><p>编辑blog目录下_config.yml文件，详见<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">hexo配置</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>找到<code>deploy</code>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo:https://github.com/SkylerHu/SkylerHu.github.io.git</span><br><span class="line">     branch:master</span><br><span class="line">     message: commit的message，默认 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存后执行命令安装插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install  --save</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-配置RSS"><a href="#4-配置RSS" class="headerlink" title="4. 配置RSS"></a>4. 配置RSS</h4><p>编辑_config.yml配置feed<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  hub:</span><br></pre></td></tr></table></figure></p>
+<p>安装插件<a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="external">hexo-generator-feed</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<h4 id="5-部署GitHub-Pages"><a href="#5-部署GitHub-Pages" class="headerlink" title="5. 部署GitHub Pages"></a>5. 部署GitHub Pages</h4><p>部署之前可以修改_confi.yml中deploy.message作为git commit的message<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每次修改之后都需要clean和generate</span></span><br><span class="line">~/blog$ hexo clean</span><br><span class="line">~/blog$ hexo generate</span><br><span class="line"><span class="comment"># hexo d 也可以</span></span><br><span class="line">~/blog$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>会生成一个<code>.deploy_git</code> 文件夹同步到GitHub项目中。</p>
+<h4 id="5-主题"><a href="#5-主题" class="headerlink" title="5. 主题"></a>5. 主题</h4><p>推荐网站<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br>我自己使用的是 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+<p>修改hexo根目录下的 _config.yml ： theme: yilia</p>
+<h4 id="6-使用自己的域名-1"><a href="#6-使用自己的域名-1" class="headerlink" title="6. 使用自己的域名"></a>6. 使用自己的域名</h4><p>同Jekyll一样，也需要修改域名解析，同样也要在GitHub项目下添加CNAME文件。</p>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>不能直接在<code>deploy_git</code>目录下直接添加CNAME文件，每次generate之后会删除</li>
+<li>需要添加到<code>source</code>文件夹下<code>echo &quot;pages.skylerhu.com&quot; &gt; source/CNAME</code></li>
+</ul>
+</blockquote>
+<h4 id="7-其他配置"><a href="#7-其他配置" class="headerlink" title="7. 其他配置"></a>7. 其他配置</h4><p>可以在blog/_config.yml配置<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="external">语言和时区</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure></p>
+<p>我的网站还添加了<code>多说评论</code>和<code>百度统计</code>，具体使用详见<a href="http://ijiaober.github.io/categories/hexo/" target="_blank" rel="external">推荐网站</a>。</p>
+<h3 id="四、比较"><a href="#四、比较" class="headerlink" title="四、比较"></a>四、比较</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Jekyll</th>
+<th>hexo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>语言</td>
+<td>Ruby</td>
+<td>node.js</td>
+</tr>
+<tr>
+<td>效率</td>
+<td>So fast</td>
+<td>稍慢</td>
+</tr>
+<tr>
+<td>部署</td>
+<td>需要多个命令</td>
+<td>直接使用git命令</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>两个之间都可以互相迁移，看个人操作习惯和爱好吧。</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jekyll/">Jekyll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-ownclound-disable-fileicon-on-mac" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -821,65 +962,6 @@ make &amp;&amp; make install
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Play/">Play</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SOP/">SOP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-ViewPage-in-ScrollView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/Android-ViewPage-in-ScrollView/" class="article-date">
-  	<time datetime="2014-08-08T12:08:00.000Z" itemprop="datePublished">2014-08-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Android-ViewPage-in-ScrollView/">ScrollView内嵌ViewPager导致ViewPager滑动困难问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>解决方式：重写ScrollView，然后在xml中定义布局的时候，使用自定义的PagerScrollView而不是系统的ScrollView即可。</p>
-<p>重点在于重写父类的<code>onInterceptTouchEvent</code>方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.content.Context;  </span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;  </span><br><span class="line"><span class="keyword">import</span> android.view.GestureDetector;  </span><br><span class="line"><span class="keyword">import</span> android.view.GestureDetector.SimpleOnGestureListener;  </span><br><span class="line"><span class="keyword">import</span> android.view.MotionEvent;  </span><br><span class="line"><span class="keyword">import</span> android.widget.ScrollView;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PagerScrollView</span> <span class="keyword">extends</span> <span class="title">ScrollView</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> GestureDetector mGestureDetector;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyle);  </span><br><span class="line">        init();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context);  </span><br><span class="line">        init();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context, attrs);  </span><br><span class="line">        init();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        mGestureDetector = <span class="keyword">new</span> GestureDetector(getContext(),  </span><br><span class="line">                <span class="keyword">new</span> YScrollDetector());  </span><br><span class="line">        setFadingEdgeLength(<span class="number">0</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev)  </span><br><span class="line">                &amp;&amp; mGestureDetector.onTouchEvent(ev);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">YScrollDetector</span> <span class="keyword">extends</span> <span class="title">SimpleOnGestureListener</span> </span>&#123;  </span><br><span class="line">        <span class="meta">@Override</span>  </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onScroll</span><span class="params">(MotionEvent e1, MotionEvent e2,  </span><br><span class="line">                <span class="keyword">float</span> distanceX, <span class="keyword">float</span> distanceY)</span> </span>&#123;  </span><br><span class="line">              </span><br><span class="line">            <span class="keyword">if</span> (Math.abs(distanceY) &gt;= Math.abs(distanceX)) &#123;  </span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 	</div>
 
       

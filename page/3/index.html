@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,80 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Android-TabHost" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Android-TabHost/" class="article-date">
+  	<time datetime="2014-04-05T11:19:00.000Z" itemprop="datePublished">2014-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Android-TabHost/">Android TabHost的三中实现方式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Android</li>
+<li>TabHost</li>
+</ul>
+<h5 id="1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高"><a href="#1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高" class="headerlink" title="1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高"></a>1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高</h5><p>此时的setup可以省略不写</p>
+<h5 id="2-继承Activity自定义TabHost，自己写布局（此方法最为常用）"><a href="#2-继承Activity自定义TabHost，自己写布局（此方法最为常用）" class="headerlink" title="2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）"></a>2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）</h5><p>layout.xml</p>
+<pre><code>&lt;TabHost &gt;
+    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;TabWidget &gt;&lt;/TabWidget&gt;
+    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;FrameLayout &gt;
+    &lt;span style=&quot;white-space:pre&quot;&gt;        &lt;/span&gt;&lt;LinearLayout &gt;&lt;/LinearLayout&gt;
+    &lt;span style=&quot;white-space:pre&quot;&gt;        &lt;/span&gt;&lt;LinearLayout &gt;&lt;/LinearLayout&gt;
+        ...
+    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;/FrameLayout&gt;
+&lt;/TabHost&gt;
+</code></pre><p>Activity.class</p>
+<pre><code>TabHost tabHost = (TabHost)findViewByID();  
+tabHost.setup();      //此时的setup不可省略不写
+</code></pre><h5 id="3-继承ActivityGroup，结合RadioButton-和FrameLayout-实现TabHost"><a href="#3-继承ActivityGroup，结合RadioButton-和FrameLayout-实现TabHost" class="headerlink" title="3. 继承ActivityGroup，结合RadioButton(和FrameLayout)实现TabHost"></a>3. 继承ActivityGroup，结合RadioButton(和FrameLayout)实现TabHost</h5><p>需有mTabHost.setup(getLocalActivityManager());</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Android-set-dialog-style" class="article article-type-post" itemscope itemprop="blogPost">
   

@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,65 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Android-ViewPage-in-ScrollView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Android-ViewPage-in-ScrollView/" class="article-date">
+  	<time datetime="2014-08-08T12:08:00.000Z" itemprop="datePublished">2014-08-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Android-ViewPage-in-ScrollView/">ScrollView内嵌ViewPager导致ViewPager滑动困难问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>解决方式：重写ScrollView，然后在xml中定义布局的时候，使用自定义的PagerScrollView而不是系统的ScrollView即可。</p>
+<p>重点在于重写父类的<code>onInterceptTouchEvent</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.content.Context;  </span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;  </span><br><span class="line"><span class="keyword">import</span> android.view.GestureDetector;  </span><br><span class="line"><span class="keyword">import</span> android.view.GestureDetector.SimpleOnGestureListener;  </span><br><span class="line"><span class="keyword">import</span> android.view.MotionEvent;  </span><br><span class="line"><span class="keyword">import</span> android.widget.ScrollView;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PagerScrollView</span> <span class="keyword">extends</span> <span class="title">ScrollView</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> GestureDetector mGestureDetector;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyle);  </span><br><span class="line">        init();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context);  </span><br><span class="line">        init();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PagerScrollView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>(context, attrs);  </span><br><span class="line">        init();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        mGestureDetector = <span class="keyword">new</span> GestureDetector(getContext(),  </span><br><span class="line">                <span class="keyword">new</span> YScrollDetector());  </span><br><span class="line">        setFadingEdgeLength(<span class="number">0</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev)  </span><br><span class="line">                &amp;&amp; mGestureDetector.onTouchEvent(ev);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">YScrollDetector</span> <span class="keyword">extends</span> <span class="title">SimpleOnGestureListener</span> </span>&#123;  </span><br><span class="line">        <span class="meta">@Override</span>  </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onScroll</span><span class="params">(MotionEvent e1, MotionEvent e2,  </span><br><span class="line">                <span class="keyword">float</span> distanceX, <span class="keyword">float</span> distanceY)</span> </span>&#123;  </span><br><span class="line">              </span><br><span class="line">            <span class="keyword">if</span> (Math.abs(distanceY) &gt;= Math.abs(distanceX)) &#123;  </span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Android-Manage-Activity-Service" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -722,80 +781,6 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span>  <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span>  <span class="attr">android:name</span>=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <p>其他操作与普通的JAVA的IO操作没有区别。</p>
 <h2 id="3-SQLite数据库：把结构化的数据保存在一个私有的数据库中"><a href="#3-SQLite数据库：把结构化的数据保存在一个私有的数据库中" class="headerlink" title="3. SQLite数据库：把结构化的数据保存在一个私有的数据库中"></a>3. SQLite数据库：把结构化的数据保存在一个私有的数据库中</h2><h2 id="4-网络存储：把数据保存在网络上开发者自己的服务器中"><a href="#4-网络存储：把数据保存在网络上开发者自己的服务器中" class="headerlink" title="4. 网络存储：把数据保存在网络上开发者自己的服务器中"></a>4. 网络存储：把数据保存在网络上开发者自己的服务器中</h2><h2 id="5-XML存储：通过XML文件存储数据"><a href="#5-XML存储：通过XML文件存储数据" class="headerlink" title="5. XML存储：通过XML文件存储数据"></a>5. XML存储：通过XML文件存储数据</h2><p>也相当于文件存储的一种形式。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-TabHost" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/Android-TabHost/" class="article-date">
-  	<time datetime="2014-04-05T11:19:00.000Z" itemprop="datePublished">2014-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Android-TabHost/">Android TabHost的三中实现方式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Android</li>
-<li>TabHost</li>
-</ul>
-<h5 id="1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高"><a href="#1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高" class="headerlink" title="1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高"></a>1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高</h5><p>此时的setup可以省略不写</p>
-<h5 id="2-继承Activity自定义TabHost，自己写布局（此方法最为常用）"><a href="#2-继承Activity自定义TabHost，自己写布局（此方法最为常用）" class="headerlink" title="2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）"></a>2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）</h5><p>layout.xml</p>
-<pre><code>&lt;TabHost &gt;
-    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;TabWidget &gt;&lt;/TabWidget&gt;
-    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;FrameLayout &gt;
-    &lt;span style=&quot;white-space:pre&quot;&gt;        &lt;/span&gt;&lt;LinearLayout &gt;&lt;/LinearLayout&gt;
-    &lt;span style=&quot;white-space:pre&quot;&gt;        &lt;/span&gt;&lt;LinearLayout &gt;&lt;/LinearLayout&gt;
-        ...
-    &lt;span style=&quot;white-space:pre&quot;&gt;    &lt;/span&gt;&lt;/FrameLayout&gt;
-&lt;/TabHost&gt;
-</code></pre><p>Activity.class</p>
-<pre><code>TabHost tabHost = (TabHost)findViewByID();  
-tabHost.setup();      //此时的setup不可省略不写
-</code></pre><h5 id="3-继承ActivityGroup，结合RadioButton-和FrameLayout-实现TabHost"><a href="#3-继承ActivityGroup，结合RadioButton-和FrameLayout-实现TabHost" class="headerlink" title="3. 继承ActivityGroup，结合RadioButton(和FrameLayout)实现TabHost"></a>3. 继承ActivityGroup，结合RadioButton(和FrameLayout)实现TabHost</h5><p>需有mTabHost.setup(getLocalActivityManager());</p>
 
       
     </div>

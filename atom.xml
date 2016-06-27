@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-26T10:59:46.000Z</updated>
+  <updated>2016-06-27T07:42:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo/Jekyll + github搭建自己的博客</title>
+    <link href="http://yoursite.com/hexo-Jekyll-github/"/>
+    <id>http://yoursite.com/hexo-Jekyll-github/</id>
+    <published>2016-06-27T07:41:41.000Z</published>
+    <updated>2016-06-27T07:42:34.000Z</updated>
+    
+    <content type="html">&lt;p&gt;首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。&lt;/p&gt;
+&lt;h3 id=&quot;一、GitHub-Pages的使用&quot;&gt;&lt;a href=&quot;#一、GitHub-Pages的使用&quot; class=&quot;headerlink&quot; title=&quot;一、GitHub Pages的使用&quot;&gt;&lt;/a&gt;一、GitHub Pages的使用&lt;/h3&gt;&lt;h4 id=&quot;1-创建一个分支，使用你的GitHub-name&quot;&gt;&lt;a href=&quot;#1-创建一个分支，使用你的GitHub-name&quot; class=&quot;headerlink&quot; title=&quot;1. 创建一个分支，使用你的GitHub name&quot;&gt;&lt;/a&gt;1. 创建一个分支，使用你的GitHub name&lt;/h4&gt;&lt;p&gt;Head over to GitHub and create a new repository named username.github.io, where username is your username (or organization name) on GitHub.&lt;/p&gt;
+&lt;p&gt;我的GitHub name是 SkylerHu，以我的名字为例。&lt;/p&gt;
+&lt;h4 id=&quot;2-初始化项目&quot;&gt;&lt;a href=&quot;#2-初始化项目&quot; class=&quot;headerlink&quot; title=&quot;2. 初始化项目&quot;&gt;&lt;/a&gt;2. 初始化项目&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;若是借助Jekyll和hexo的话，只需clone下来即可。&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;已下步骤是基于terminal的git命令，若是使用界面工具，自己去&lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub Pages&lt;/a&gt;看&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~$ git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/SkylerHu/SkylerHu.github.io&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; SkylerHu.github.io&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~$ &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Hello World&quot;&lt;/span&gt; &amp;gt; index.html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~$ git add --all&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~$ git commit -m &lt;span class=&quot;string&quot;&gt;&quot;Initial commit&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~$ git push -u origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;也可以在index.html中添加HTML内容，然后在push&lt;/p&gt;
+&lt;p&gt;一切OK之后，可以访问 &lt;a href=&quot;http://SkylerHu.github.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://SkylerHu.github.io&lt;/a&gt;.  可以查看index.html的内容。这个网址就是你的博客网址。&lt;/p&gt;
+&lt;h3 id=&quot;二、使用Jekyll&quot;&gt;&lt;a href=&quot;#二、使用Jekyll&quot; class=&quot;headerlink&quot; title=&quot;二、使用Jekyll&quot;&gt;&lt;/a&gt;二、使用Jekyll&lt;/h3&gt;&lt;p&gt;上面新建的项目中，Settings中可以看到GitHubPages相关配置，官方推荐使用&lt;a href=&quot;http://jekyll.bootcss.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Jekyll&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://7xpdkx.com1.z0.glb.clouddn.com/2016/06/27/81479b8884.png&quot; alt=&quot;GitHub Pages Settings&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-初始化&quot;&gt;&lt;a href=&quot;#1-初始化&quot; class=&quot;headerlink&quot; title=&quot;1. 初始化&quot;&gt;&lt;/a&gt;1. 初始化&lt;/h4&gt;&lt;p&gt;安装需要Ruby环境，没有的话自行安装。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~$ gem install jekyll&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~$ jekyll new my-awesome-site&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;把项目生成的所有文件，全部copy到&lt;code&gt;SkylerHu.github.io&lt;/code&gt;目录下.&lt;/p&gt;
+&lt;h4 id=&quot;2-目录结构&quot;&gt;&lt;a href=&quot;#2-目录结构&quot; class=&quot;headerlink&quot; title=&quot;2. 目录结构&quot;&gt;&lt;/a&gt;2. 目录结构&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://jekyll.bootcss.com/docs/structure/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;目录结构&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;3-本地启动预览&quot;&gt;&lt;a href=&quot;#3-本地启动预览&quot; class=&quot;headerlink&quot; title=&quot;3. 本地启动预览&quot;&gt;&lt;/a&gt;3. 本地启动预览&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; SkylerHu.github.io&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~/SkylerHu.github.io$ jekyll serve&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;直接访问&lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt;  就可以看到你的网站了。&lt;/p&gt;
+&lt;h4 id=&quot;4-写文章&quot;&gt;&lt;a href=&quot;#4-写文章&quot; class=&quot;headerlink&quot; title=&quot;4. 写文章&quot;&gt;&lt;/a&gt;4. 写文章&lt;/h4&gt;&lt;p&gt;在目录&lt;code&gt;/SkylerHu.github.io/_posts/&lt;/code&gt;下新建xxxx.md；&lt;br&gt;格式需要按照模板提供的去写； &lt;/p&gt;
+&lt;h4 id=&quot;5-部署&quot;&gt;&lt;a href=&quot;#5-部署&quot; class=&quot;headerlink&quot; title=&quot;5. 部署&quot;&gt;&lt;/a&gt;5. 部署&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~/SkylerHu.github.io$ git add --all&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~/SkylerHu.github.io$ git push&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;6-使用自己的域名&quot;&gt;&lt;a href=&quot;#6-使用自己的域名&quot; class=&quot;headerlink&quot; title=&quot;6. 使用自己的域名&quot;&gt;&lt;/a&gt;6. 使用自己的域名&lt;/h4&gt;&lt;h5 id=&quot;1-添加CNAME文件push到GitHub&quot;&gt;&lt;a href=&quot;#1-添加CNAME文件push到GitHub&quot; class=&quot;headerlink&quot; title=&quot;1) 添加CNAME文件push到GitHub&quot;&gt;&lt;/a&gt;1) 添加CNAME文件push到GitHub&lt;/h5&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~/SkylerHu.github.io$ &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;pages.skylerhu.com&quot;&lt;/span&gt; &amp;gt; CNAME&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h5 id=&quot;2-域名解析&quot;&gt;&lt;a href=&quot;#2-域名解析&quot; class=&quot;headerlink&quot; title=&quot;2) 域名解析&quot;&gt;&lt;/a&gt;2) 域名解析&lt;/h5&gt;&lt;p&gt;使pages.skylerhu.com解析到 SkylerHu.github.io&lt;br&gt;注意选择 解析类型是&lt;code&gt;CNAME&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&quot;7-主题&quot;&gt;&lt;a href=&quot;#7-主题&quot; class=&quot;headerlink&quot; title=&quot;7. 主题&quot;&gt;&lt;/a&gt;7. 主题&lt;/h4&gt;&lt;p&gt;推荐网站：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://jekyllthemes.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://jekyllthemes.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://jekyllthemes.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://jekyllthemes.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以根据自己的喜好去选择主题，都大同小异。&lt;/p&gt;
+&lt;h3 id=&quot;三、使用hexo&quot;&gt;&lt;a href=&quot;#三、使用hexo&quot; class=&quot;headerlink&quot; title=&quot;三、使用hexo&quot;&gt;&lt;/a&gt;三、使用hexo&lt;/h3&gt;&lt;p&gt;之所有使用&lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo&lt;/a&gt;,因为好多网友都说这个比较好，所有研究了一下使用方法。&lt;/p&gt;
+&lt;p&gt;需要安装&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Node.js&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-安装&quot;&gt;&lt;a href=&quot;#1-安装&quot; class=&quot;headerlink&quot; title=&quot;1. 安装&quot;&gt;&lt;/a&gt;1. 安装&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~$ sudo npm install-g hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;2-初始化&quot;&gt;&lt;a href=&quot;#2-初始化&quot; class=&quot;headerlink&quot; title=&quot;2. 初始化&quot;&gt;&lt;/a&gt;2. 初始化&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ hexo init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 生成静态页面，把markdown转化成html，hexo g 也行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 启动本地服务，hexo s 也行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其他&lt;a href=&quot;https://hexo.io/zh-cn/docs/commands.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo命令&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3-配置GitHub&quot;&gt;&lt;a href=&quot;#3-配置GitHub&quot; class=&quot;headerlink&quot; title=&quot;3. 配置GitHub&quot;&gt;&lt;/a&gt;3. 配置GitHub&lt;/h4&gt;&lt;p&gt;编辑blog目录下_config.yml文件，详见&lt;a href=&quot;https://hexo.io/zh-cn/docs/configuration.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo配置&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ vim _config.yml&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;找到&lt;code&gt;deploy&lt;/code&gt;配置如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     type: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     repo:https://github.com/SkylerHu/SkylerHu.github.io.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     branch:master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     message: commit的message，默认 Site updated: &amp;#123;&amp;#123; now(&amp;apos;YYYY-MM-DD HH:mm:ss&amp;apos;) &amp;#125;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;保存后执行命令安装插件&lt;a href=&quot;https://github.com/hexojs/hexo-deployer-git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo-deployer-git&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ npm install  --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&quot;4-配置RSS&quot;&gt;&lt;a href=&quot;#4-配置RSS&quot; class=&quot;headerlink&quot; title=&quot;4. 配置RSS&quot;&gt;&lt;/a&gt;4. 配置RSS&lt;/h4&gt;&lt;p&gt;编辑_config.yml配置feed&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;feed:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  type: atom&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  path: atom.xml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  limit: 20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hub:&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;安装插件&lt;a href=&quot;https://github.com/hexojs/hexo-generator-feed&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo-generator-feed&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ npm install hexo-generator-feed --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;5-部署GitHub-Pages&quot;&gt;&lt;a href=&quot;#5-部署GitHub-Pages&quot; class=&quot;headerlink&quot; title=&quot;5. 部署GitHub Pages&quot;&gt;&lt;/a&gt;5. 部署GitHub Pages&lt;/h4&gt;&lt;p&gt;部署之前可以修改_confi.yml中deploy.message作为git commit的message&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 每次修改之后都需要clean和generate&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ hexo clean&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# hexo d 也可以&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~/blog$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;会生成一个&lt;code&gt;.deploy_git&lt;/code&gt; 文件夹同步到GitHub项目中。&lt;/p&gt;
+&lt;h4 id=&quot;5-主题&quot;&gt;&lt;a href=&quot;#5-主题&quot; class=&quot;headerlink&quot; title=&quot;5. 主题&quot;&gt;&lt;/a&gt;5. 主题&lt;/h4&gt;&lt;p&gt;推荐网站&lt;a href=&quot;https://hexo.io/themes/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://hexo.io/themes/&lt;/a&gt;&lt;br&gt;我自己使用的是 &lt;a href=&quot;https://github.com/litten/hexo-theme-yilia&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo-theme-yilia&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~$ git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/litten/hexo-theme-yilia.git themes/yilia&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改hexo根目录下的 _config.yml ： theme: yilia&lt;/p&gt;
+&lt;h4 id=&quot;6-使用自己的域名-1&quot;&gt;&lt;a href=&quot;#6-使用自己的域名-1&quot; class=&quot;headerlink&quot; title=&quot;6. 使用自己的域名&quot;&gt;&lt;/a&gt;6. 使用自己的域名&lt;/h4&gt;&lt;p&gt;同Jekyll一样，也需要修改域名解析，同样也要在GitHub项目下添加CNAME文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不能直接在&lt;code&gt;deploy_git&lt;/code&gt;目录下直接添加CNAME文件，每次generate之后会删除&lt;/li&gt;
+&lt;li&gt;需要添加到&lt;code&gt;source&lt;/code&gt;文件夹下&lt;code&gt;echo &amp;quot;pages.skylerhu.com&amp;quot; &amp;gt; source/CNAME&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;7-其他配置&quot;&gt;&lt;a href=&quot;#7-其他配置&quot; class=&quot;headerlink&quot; title=&quot;7. 其他配置&quot;&gt;&lt;/a&gt;7. 其他配置&lt;/h4&gt;&lt;p&gt;可以在blog/_config.yml配置&lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;语言和时区&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;language: zh-Hans&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;timezone: Asia/Shanghai&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;我的网站还添加了&lt;code&gt;多说评论&lt;/code&gt;和&lt;code&gt;百度统计&lt;/code&gt;，具体使用详见&lt;a href=&quot;http://ijiaober.github.io/categories/hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;推荐网站&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;四、比较&quot;&gt;&lt;a href=&quot;#四、比较&quot; class=&quot;headerlink&quot; title=&quot;四、比较&quot;&gt;&lt;/a&gt;四、比较&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Jekyll&lt;/th&gt;
+&lt;th&gt;hexo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;语言&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;td&gt;node.js&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;效率&lt;/td&gt;
+&lt;td&gt;So fast&lt;/td&gt;
+&lt;td&gt;稍慢&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;部署&lt;/td&gt;
+&lt;td&gt;需要多个命令&lt;/td&gt;
+&lt;td&gt;直接使用git命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;两个之间都可以互相迁移，看个人操作习惯和爱好吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。&lt;/p&gt;
+&lt;h3 id=&quot;一、GitHub-Pages的使用&quot;&gt;&lt;a href=&quot;#一、GitHub-Pages的使用&quot; class=&quot;headerlink&quot; title=&quot;一、GitHub Pages的
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="Jekyll" scheme="http://yoursite.com/tags/Jekyll/"/>
+    
+      <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
+    
+  </entry>
   
   <entry>
     <title>owncloud在mac finder中没有显示状态icon</title>
@@ -600,9 +710,9 @@ make &amp;amp;&amp;amp; make install
     </summary>
     
     
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   
@@ -674,48 +784,6 @@ make &amp;amp;&amp;amp; make install
     <summary type="html">
     
       &lt;h2 id=&quot;1-SharedPreference：通过键值对形式保存简单的私有数据&quot;&gt;&lt;a href=&quot;#1-SharedPreference：通过键值对形式保存简单的私有数据&quot; class=&quot;headerlink&quot; title=&quot;1. SharedPreference：通过
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android TabHost的三中实现方式</title>
-    <link href="http://yoursite.com/Android-TabHost/"/>
-    <id>http://yoursite.com/Android-TabHost/</id>
-    <published>2014-04-05T11:19:00.000Z</published>
-    <updated>2016-06-26T09:55:31.000Z</updated>
-    
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;Android&lt;/li&gt;
-&lt;li&gt;TabHost&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高&quot;&gt;&lt;a href=&quot;#1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高&quot; class=&quot;headerlink&quot; title=&quot;1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高&quot;&gt;&lt;/a&gt;1. 继承TabActivity实现，此方法最为简单，但灵活性、实用性不高&lt;/h5&gt;&lt;p&gt;此时的setup可以省略不写&lt;/p&gt;
-&lt;h5 id=&quot;2-继承Activity自定义TabHost，自己写布局（此方法最为常用）&quot;&gt;&lt;a href=&quot;#2-继承Activity自定义TabHost，自己写布局（此方法最为常用）&quot; class=&quot;headerlink&quot; title=&quot;2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）&quot;&gt;&lt;/a&gt;2. 继承Activity自定义TabHost，自己写布局（此方法最为常用）&lt;/h5&gt;&lt;p&gt;layout.xml&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;TabHost &amp;gt;
-    &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;    &amp;lt;/span&amp;gt;&amp;lt;TabWidget &amp;gt;&amp;lt;/TabWidget&amp;gt;
-    &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;    &amp;lt;/span&amp;gt;&amp;lt;FrameLayout &amp;gt;
-    &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;        &amp;lt;/span&amp;gt;&amp;lt;LinearLayout &amp;gt;&amp;lt;/LinearLayout&amp;gt;
-    &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;        &amp;lt;/span&amp;gt;&amp;lt;LinearLayout &amp;gt;&amp;lt;/LinearLayout&amp;gt;
-        ...
-    &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;    &amp;lt;/span&amp;gt;&amp;lt;/FrameLayout&amp;gt;
-&amp;lt;/TabHost&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Activity.class&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;TabHost tabHost = (TabHost)findViewByID();  
-tabHost.setup();      //此时的setup不可省略不写
-&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;3-继承ActivityGroup，结合RadioButton-和FrameLayout-实现TabHost&quot;&gt;&lt;a href=&quot;#3-继承ActivityGroup，结合RadioButton-和FrameLayout-实现TabHost&quot; class=&quot;headerlink&quot; title=&quot;3. 继承ActivityGroup，结合RadioButton(和FrameLayout)实现TabHost&quot;&gt;&lt;/a&gt;3. 继承ActivityGroup，结合RadioButton(和FrameLayout)实现TabHost&lt;/h5&gt;&lt;p&gt;需有mTabHost.setup(getLocalActivityManager());&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;Android&lt;/li&gt;
-&lt;li&gt;TabHost&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高&quot;&gt;&lt;a href=&quot;#1-继承TabActivity实现，此方法最为简单，但灵活性、实用性不高&quot; c
     
     </summary>
     
