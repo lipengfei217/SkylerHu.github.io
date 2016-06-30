@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: Jekyll | Skyler&#39;s Blog</title>
+  <title>ubuntu 解决语言设置错误的问题 | Skyler&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="No pains, No gains!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Skyler's Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Jekyll/index.html">
+  <meta name="description" content="在使用 ubuntu 命令行登录的时候，出现：
+12345678perl: warning: Setting locale failed.perl: warning: Please check that your locale settings:    LANGUAGE = (unset),    LC_ALL = (unset),    LC_MESSAGES = &amp;quot;zh_CN.UTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu 解决语言设置错误的问题">
+<meta property="og:url" content="http://yoursite.com/ubuntu-set-language/index.html">
 <meta property="og:site_name" content="Skyler's Blog">
-<meta property="og:description" content="No pains, No gains!">
+<meta property="og:description" content="在使用 ubuntu 命令行登录的时候，出现：
+12345678perl: warning: Setting locale failed.perl: warning: Please check that your locale settings:    LANGUAGE = (unset),    LC_ALL = (unset),    LC_MESSAGES = &amp;quot;zh_CN.UTF">
+<meta property="og:updated_time" content="2016-06-28T03:27:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Skyler's Blog">
-<meta name="twitter:description" content="No pains, No gains!">
+<meta name="twitter:title" content="ubuntu 解决语言设置错误的问题">
+<meta name="twitter:description" content="在使用 ubuntu 命令行登录的时候，出现：
+12345678perl: warning: Setting locale failed.perl: warning: Please check that your locale settings:    LANGUAGE = (unset),    LC_ALL = (unset),    LC_MESSAGES = &amp;quot;zh_CN.UTF">
   
     <link rel="alternative" href="/atom.xml" title="Skyler&#39;s Blog" type="application/atom+xml">
   
@@ -166,53 +170,105 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-ubuntu-set-language" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo-Jekyll-github/" class="archive-article-date">
-  	<time datetime="2016-06-27T07:41:41.000Z" itemprop="datePublished">Jun 27</time>
+    <div class="article-meta">
+      <a href="/ubuntu-set-language/" class="article-date">
+  	<time datetime="2016-06-28T03:26:05.000Z" itemprop="datePublished">2016-06-28</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo-Jekyll-github/">hexo/Jekyll + github搭建自己的博客</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu 解决语言设置错误的问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jekyll/">Jekyll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用 ubuntu 命令行登录的时候，出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">perl: warning: Setting locale failed.</span><br><span class="line">perl: warning: Please check that your locale settings:</span><br><span class="line">    LANGUAGE = (unset),</span><br><span class="line">    LC_ALL = (unset),</span><br><span class="line">    LC_MESSAGES = &quot;zh_CN.UTF-8&quot;,</span><br><span class="line">    LANG = &quot;zh_CN.UTF-8&quot;</span><br><span class="line">    are supported and installed on your system.</span><br><span class="line">perl: warning: Falling back to the standard locale (&quot;C&quot;).</span><br></pre></td></tr></table></figure>
+<p>这样的错误，虽说不影响使用，但是感觉挺烦的说。</p>
+<p>那么要如何解决呢，有必要记录下：</p>
+<p>安装 <code>localepurge</code> 管理语言文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install localepurge</span><br></pre></td></tr></table></figure>
+<p>选择我们想要的语言，例如 <code>en_US.UTF-8</code> 和 <code>zh_CN.UTF-8</code>。</p>
+<p>当然也可以使用以下命令再次进行配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure localepurge</span><br></pre></td></tr></table></figure>
+<p>生成自己想要的语言</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo locale-gen zh_CN.UTF-8 en_US.UTF-8</span><br></pre></td></tr></table></figure>
+<p>打印出当前的配置信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale</span><br></pre></td></tr></table></figure>
+<p>到此，搞定！！！</p>
+<p>默认情况下终端 ssh 的时候会将本地的 locale 传到服务器中，可以通过命令指定 ssh 服务器的语言：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LC_ALL=en_US.UTF-8 ssh &lt;host&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/hexo-Jekyll-github/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo/Jekyll + github搭建自己的博客</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ubuntu-set-language" data-title="ubuntu 解决语言设置错误的问题" data-url="http://yoursite.com/ubuntu-set-language/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"skylerhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -238,9 +294,9 @@
 		mathjax: true,
 		animate: undefined,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: undefined
 	}

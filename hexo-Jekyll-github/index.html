@@ -15,7 +15,7 @@
 <meta property="og:description" content="首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。
 一、GitHub Pages的使用1. 创建一个分支，使用你的GitHub nameHead over to GitHub and create a new repository named username.github.io, where username is your username (or organization">
 <meta property="og:image" content="http://7xpdkx.com1.z0.glb.clouddn.com/2016/06/27/81479b8884.png">
-<meta property="og:updated_time" content="2016-06-27T07:42:34.000Z">
+<meta property="og:updated_time" content="2016-06-30T06:55:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo/Jekyll + github搭建自己的博客">
 <meta name="twitter:description" content="首先，必须有一个GitHub账号，相信大家都有，没有的话自己去创建吧。
@@ -110,7 +110,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
 					</div>
 				</section>
 				
@@ -246,7 +246,7 @@
 <h4 id="3-配置GitHub"><a href="#3-配置GitHub" class="headerlink" title="3. 配置GitHub"></a>3. 配置GitHub</h4><p>编辑blog目录下_config.yml文件，详见<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">hexo配置</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ vim _config.yml</span><br></pre></td></tr></table></figure>
 <p>找到<code>deploy</code>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo:https://github.com/SkylerHu/SkylerHu.github.io.git</span><br><span class="line">     branch:master</span><br><span class="line">     message: commit的message，默认 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>保存后执行命令安装插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install  --save</span><br></pre></td></tr></table></figure></p>
+<p>保存后执行命令安装插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 <h4 id="4-配置RSS"><a href="#4-配置RSS" class="headerlink" title="4. 配置RSS"></a>4. 配置RSS</h4><p>编辑_config.yml配置feed<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  hub:</span><br></pre></td></tr></table></figure></p>
 <p>安装插件<a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="external">hexo-generator-feed</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
@@ -302,6 +302,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/ubuntu-set-language/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          ubuntu 解决语言设置错误的问题
+        
+      </div>
+    </a>
   
   
     <a href="/ownclound-disable-fileicon-on-mac/" id="article-nav-older" class="article-nav-link-wrap">

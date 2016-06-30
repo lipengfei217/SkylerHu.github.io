@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,78 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-ubuntu-set-language" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/ubuntu-set-language/" class="article-date">
+  	<time datetime="2016-06-28T03:26:05.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/ubuntu-set-language/">ubuntu 解决语言设置错误的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用 ubuntu 命令行登录的时候，出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">perl: warning: Setting locale failed.</span><br><span class="line">perl: warning: Please check that your locale settings:</span><br><span class="line">    LANGUAGE = (unset),</span><br><span class="line">    LC_ALL = (unset),</span><br><span class="line">    LC_MESSAGES = &quot;zh_CN.UTF-8&quot;,</span><br><span class="line">    LANG = &quot;zh_CN.UTF-8&quot;</span><br><span class="line">    are supported and installed on your system.</span><br><span class="line">perl: warning: Falling back to the standard locale (&quot;C&quot;).</span><br></pre></td></tr></table></figure>
+<p>这样的错误，虽说不影响使用，但是感觉挺烦的说。</p>
+<p>那么要如何解决呢，有必要记录下：</p>
+<p>安装 <code>localepurge</code> 管理语言文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install localepurge</span><br></pre></td></tr></table></figure>
+<p>选择我们想要的语言，例如 <code>en_US.UTF-8</code> 和 <code>zh_CN.UTF-8</code>。</p>
+<p>当然也可以使用以下命令再次进行配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure localepurge</span><br></pre></td></tr></table></figure>
+<p>生成自己想要的语言</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo locale-gen zh_CN.UTF-8 en_US.UTF-8</span><br></pre></td></tr></table></figure>
+<p>打印出当前的配置信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale</span><br></pre></td></tr></table></figure>
+<p>到此，搞定！！！</p>
+<p>默认情况下终端 ssh 的时候会将本地的 locale 传到服务器中，可以通过命令指定 ssh 服务器的语言：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LC_ALL=en_US.UTF-8 ssh &lt;host&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-hexo-Jekyll-github" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -231,7 +303,7 @@
 <h4 id="3-配置GitHub"><a href="#3-配置GitHub" class="headerlink" title="3. 配置GitHub"></a>3. 配置GitHub</h4><p>编辑blog目录下_config.yml文件，详见<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">hexo配置</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ vim _config.yml</span><br></pre></td></tr></table></figure>
 <p>找到<code>deploy</code>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo:https://github.com/SkylerHu/SkylerHu.github.io.git</span><br><span class="line">     branch:master</span><br><span class="line">     message: commit的message，默认 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>保存后执行命令安装插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install  --save</span><br></pre></td></tr></table></figure></p>
+<p>保存后执行命令安装插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 <h4 id="4-配置RSS"><a href="#4-配置RSS" class="headerlink" title="4. 配置RSS"></a>4. 配置RSS</h4><p>编辑_config.yml配置feed<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  hub:</span><br></pre></td></tr></table></figure></p>
 <p>安装插件<a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="external">hexo-generator-feed</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
@@ -813,7 +885,7 @@ make &amp;&amp; make install
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NFS/">NFS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NFS/">NFS</a></li></ul>
 	</div>
 
       
@@ -879,89 +951,6 @@ make &amp;&amp; make install
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sencha/">Sencha</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SOP-in-Java-JS" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/SOP-in-Java-JS/" class="article-date">
-  	<time datetime="2014-11-12T01:25:00.000Z" itemprop="datePublished">2014-11-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/SOP-in-Java-JS/">JAVA调用https, JS跨域请求，客户端解决JS跨域问题, SOP</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>同源协议 (SOP,Same-Origin-Policy)</code> 可防止从一个来源加载的脚本获取或操纵来自另一来源的文档的属性或方法。术语来源 是域名、应用程序协议和运行脚本文档的端口的结合。可能存在关于 SOP 概念的一些误解；SOP 指只能从站点 A、不能从站点 B 获取信息。您需要知道在 SOP 限制下可以做什么，不可以做什么。</p>
-<h3 id="1-JAVA-https请求"><a href="#1-JAVA-https请求" class="headerlink" title="1.JAVA https请求"></a>1.JAVA https请求</h3><p>在做微信服务号的时候出现的问题，解决方法：自定义证书管理器。证书管理器的作用就是让它信任我们指定的证书，意味着信任所有证书，不管是否权威机构颁发，证书有了，通用的https请求方法就不难实现了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.qq.weixin.util;  </span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;  </span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;  </span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;  </span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;  </span><br><span class="line"><span class="keyword">import</span> java.net.URL;  </span><br><span class="line"><span class="keyword">import</span> java.security.cert.CertificateException;  </span><br><span class="line"><span class="keyword">import</span> java.security.cert.X509Certificate;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.HttpsURLConnection;  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.SSLContext;  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.SSLSocketFactory;  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.TrustManager;  </span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.X509TrustManager;  </span><br><span class="line">    </span><br><span class="line"><span class="comment">/**  </span><br><span class="line"> * 公众平台通用接口工具类  </span><br><span class="line"> *  from==&gt; </span><br><span class="line"> *      shttp://blog.csdn.net/lyq8479/article/details/9841371 </span><br><span class="line"> * <span class="doctag">@author</span> liuyq  </span><br><span class="line"> * <span class="doctag">@date</span> 2013-08-09  </span><br><span class="line"> */</span>    </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXHttpUtil</span> </span>&#123;    </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/**  </span><br><span class="line">     * 发起https请求并获取结果  </span><br><span class="line">     *   </span><br><span class="line">     * <span class="doctag">@param</span> requestUrl 请求地址  </span><br><span class="line">     * <span class="doctag">@param</span> requestMethod 请求方式（GET、POST）  </span><br><span class="line">     * <span class="doctag">@param</span> outputStr 提交的数据  </span><br><span class="line">     * <span class="doctag">@return</span> String  </span><br><span class="line">     */</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpsRequest</span><span class="params">(String requestUrl, String requestMethod, String outputStr)</span> <span class="keyword">throws</span> Exception </span>&#123;    </span><br><span class="line">        StringBuffer buffer = <span class="keyword">new</span> StringBuffer();    </span><br><span class="line">        <span class="comment">// 创建SSLContext对象，并使用我们指定的信任管理器初始化    </span></span><br><span class="line">        TrustManager[] tm = &#123; <span class="keyword">new</span> MyX509TrustManager() &#125;;    </span><br><span class="line">        SSLContext sslContext = SSLContext.getInstance(<span class="string">"SSL"</span>, <span class="string">"SunJSSE"</span>);    </span><br><span class="line">        sslContext.init(<span class="keyword">null</span>, tm, <span class="keyword">new</span> java.security.SecureRandom());    </span><br><span class="line">        <span class="comment">// 从上述SSLContext对象中得到SSLSocketFactory对象    </span></span><br><span class="line">        SSLSocketFactory ssf = sslContext.getSocketFactory();    </span><br><span class="line">          </span><br><span class="line">        URL url = <span class="keyword">new</span> URL(requestUrl);    </span><br><span class="line">        HttpsURLConnection httpUrlConn = (HttpsURLConnection) url.openConnection();    </span><br><span class="line">        httpUrlConn.setSSLSocketFactory(ssf);    </span><br><span class="line">          </span><br><span class="line">        httpUrlConn.setDoOutput(<span class="keyword">true</span>);    </span><br><span class="line">        httpUrlConn.setDoInput(<span class="keyword">true</span>);    </span><br><span class="line">        httpUrlConn.setUseCaches(<span class="keyword">false</span>);    </span><br><span class="line">        <span class="comment">// 设置请求方式（GET/POST）    </span></span><br><span class="line">        httpUrlConn.setRequestMethod(requestMethod);    </span><br><span class="line">          </span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"GET"</span>.equalsIgnoreCase(requestMethod))    </span><br><span class="line">            httpUrlConn.connect();    </span><br><span class="line">          </span><br><span class="line">        <span class="comment">// 当有数据需要提交时    </span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != outputStr) &#123;  </span><br><span class="line">            OutputStream outputStream = httpUrlConn.getOutputStream();    </span><br><span class="line">            <span class="comment">// 注意编码格式，防止中文乱码    </span></span><br><span class="line">            outputStream.write(outputStr.getBytes(<span class="string">"UTF-8"</span>));    </span><br><span class="line">            outputStream.close();    </span><br><span class="line">        &#125;    </span><br><span class="line">          </span><br><span class="line">        <span class="comment">// 将返回的输入流转换成字符串    </span></span><br><span class="line">        InputStream inputStream = httpUrlConn.getInputStream();    </span><br><span class="line">        InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(inputStream, <span class="string">"utf-8"</span>);    </span><br><span class="line">        BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(inputStreamReader);    </span><br><span class="line">          </span><br><span class="line">        String str = <span class="keyword">null</span>;    </span><br><span class="line">        <span class="keyword">while</span> ((str = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;    </span><br><span class="line">            buffer.append(str);    </span><br><span class="line">        &#125;    </span><br><span class="line">        bufferedReader.close();    </span><br><span class="line">        inputStreamReader.close();    </span><br><span class="line">        <span class="comment">// 释放资源    </span></span><br><span class="line">        inputStream.close();    </span><br><span class="line">        inputStream = <span class="keyword">null</span>;    </span><br><span class="line">        httpUrlConn.disconnect();   </span><br><span class="line">        String result = buffer.toString();  </span><br><span class="line">        System.out.println(<span class="string">"请求结果==&gt;"</span> + result);  </span><br><span class="line">        <span class="keyword">return</span> result;    </span><br><span class="line">    &#125;    </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/**  </span><br><span class="line">     * 证书信任管理器（用于https请求）  </span><br><span class="line">     *   </span><br><span class="line">     * <span class="doctag">@author</span> liufeng  </span><br><span class="line">     * <span class="doctag">@date</span> 2013-08-08  </span><br><span class="line">     */</span>    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyX509TrustManager</span> <span class="keyword">implements</span> <span class="title">X509TrustManager</span> </span>&#123;    </span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkClientTrusted</span><span class="params">(X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> CertificateException </span>&#123;    </span><br><span class="line">        &#125;    </span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkServerTrusted</span><span class="params">(X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> CertificateException </span>&#123;    </span><br><span class="line">        &#125;    </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">public</span> X509Certificate[] getAcceptedIssuers() &#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;    </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-JS跨域请求"><a href="#2-JS跨域请求" class="headerlink" title="2. JS跨域请求"></a>2. JS跨域请求</h3><p>在网上看了好多方法:</p>
-<ul>
-<li>1）iframe</li>
-<li>2）document.domain</li>
-<li>3）window.name</li>
-<li>4）script</li>
-<li>5）XDomainRequest (IE8+)</li>
-<li>6）XMLHTTPRequest (Firefox3.5+)</li>
-<li>7）postMessage (HTML5)</li>
-<li>8）后台代理</li>
-</ul>
-<p><strong>本文此处讲解一下JsonP的处理注意事项</strong></p>
-<p>JSONP的实现思路很简单</p>
-<ul>
-<li>1）前端创建script标记，设置src，添加到head中（你可以往body中添加）；</li>
-<li>2）后台返回一个js变量jsonp，这个jsonp就是请求后的JSON数据；</li>
-<li>3）回调完成后删除script标记（还有一些清理工作如避免部分浏览器内存泄露等）。</li>
-</ul>
-<p>客户端直接使用JsonP请求：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;    </span><br><span class="line">        url:<span class="string">"http://crossdomain.com/services.php"</span>,    </span><br><span class="line">        dataType:<span class="string">'jsonp'</span>,    </span><br><span class="line">        data:<span class="string">''</span>,    </span><br><span class="line">        jsonp:<span class="string">'callback'</span>,    </span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;    </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> result) &#123;    </span><br><span class="line">                alert(i+<span class="string">":"</span>+result[i]);<span class="comment">//循环输出a:1,b:2,etc.    </span></span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;,    </span><br><span class="line">        timeout:<span class="number">3000</span>    </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<p>服务器端处理：(Play Framework写的服务器)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String callback = request.params.get(<span class="string">"callback"</span>);  </span><br><span class="line">String result = callback + <span class="string">"("</span> + JSON.toJSONString(dataMap) + <span class="string">")"</span>;  </span><br><span class="line">renderText(result);</span><br></pre></td></tr></table></figure>
-<p>返回时数据用callback+()包上。</p>
-<h3 id="3-利用客户端解决方案改进跨域通信"><a href="#3-利用客户端解决方案改进跨域通信" class="headerlink" title="3. 利用客户端解决方案改进跨域通信"></a>3. 利用客户端解决方案改进跨域通信</h3><p><a href="http://www.ibm.com/developerworks/cn/web/wa-crossdomaincomm/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/web/wa-crossdomaincomm/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Play/">Play</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SOP/">SOP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
 	</div>
 
       

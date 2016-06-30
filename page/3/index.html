@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SOP/" style="font-size: 10px;">SOP</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/MQTT/" style="font-size: 13.33px;">MQTT</a> <a href="/tags/NFS/" style="font-size: 10px;">NFS</a> <a href="/tags/Play/" style="font-size: 10px;">Play</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Sencha/" style="font-size: 16.67px;">Sencha</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mosquitto/" style="font-size: 13.33px;">mosquitto</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/owncloud/" style="font-size: 10px;">owncloud</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,73 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Android-storage" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Android-storage/" class="article-date">
+  	<time datetime="2014-04-05T11:42:00.000Z" itemprop="datePublished">2014-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Android-storage/">Android的五中数据存储方式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-SharedPreference：通过键值对形式保存简单的私有数据"><a href="#1-SharedPreference：通过键值对形式保存简单的私有数据" class="headerlink" title="1. SharedPreference：通过键值对形式保存简单的私有数据"></a>1. SharedPreference：通过键值对形式保存简单的私有数据</h2><p>类似于Java中的Properties类<br>保存的也是key = value,是以xml文档格式保存。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获得SharedPreferences的实例  </span></span><br><span class="line">shared = getSharedPreferences(文件名不需要后缀,文件的创建模式);  </span><br><span class="line"><span class="comment">//文件的创建模式  </span></span><br><span class="line">Context.MODE_APPEDN(追加)  </span><br><span class="line">Context.MODE_PRIVATE(私有)  </span><br><span class="line">Context.MODE_WORLD_READABLE(公有可读)  </span><br><span class="line">Context.MODE_WORLD_WRITEABLE(公有可写)  </span><br><span class="line"><span class="comment">//获得可以修改的对象Editor  </span></span><br><span class="line">editor = share.edit();  </span><br><span class="line">editor.putXXX(key, value);  </span><br><span class="line"><span class="comment">//提交执行，写入文档  </span></span><br><span class="line">editor.commit();</span><br></pre></td></tr></table></figure>
+<p><strong>查看文件</strong><br> -&gt; window -&gt; preference -&gt; showView -&gt; file Explorer</p>
+<p> <strong>路径：</strong>/data/data/[your package name]/shared_prefs/</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到写入而能当的内容  </span></span><br><span class="line">shared.getXXX(key, 默认值);  </span><br><span class="line">shared.getAll();<span class="comment">//返回的是一个Map&lt;String, ?&gt;  </span></span><br><span class="line">StringBuffer sb = <span class="keyword">new</span> StringBuffer();  </span><br><span class="line">sb.append(<span class="string">"name = "</span>)  </span><br><span class="line">    .append(shared.getString(<span class="string">"name"</span>, <span class="keyword">null</span>)  </span><br><span class="line">    .append(<span class="string">"\r\n"</span>)  </span><br><span class="line">    .append(<span class="string">"password = "</span>)  </span><br><span class="line">    .append(shared.getString(<span class="string">"password"</span>, <span class="keyword">null</span>);  </span><br><span class="line">editText.setText(sb);</span><br></pre></td></tr></table></figure>
+<h2 id="2-文件存储：以文件的形式存储数据，内部存储——保存私有数据，外部存储——保存公有数据"><a href="#2-文件存储：以文件的形式存储数据，内部存储——保存私有数据，外部存储——保存公有数据" class="headerlink" title="2. 文件存储：以文件的形式存储数据，内部存储——保存私有数据，外部存储——保存公有数据"></a>2. 文件存储：以文件的形式存储数据，内部存储——保存私有数据，外部存储——保存公有数据</h2><h3 id="（1）内部存储"><a href="#（1）内部存储" class="headerlink" title="（1）内部存储"></a>（1）内部存储</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">os = openFileOutput(文件名,文件创建模式同上);  </span><br><span class="line">is = opFileInput(文件名)；  </span><br><span class="line"><span class="comment">//文件保存的位置：/data/data/your package mame/files/  </span></span><br><span class="line"><span class="comment">//获取路径        </span></span><br><span class="line">File dir = Context.getFilesDir();  </span><br><span class="line">File file = dir + “<span class="comment">//” + FILE_NAME;  </span></span><br><span class="line"><span class="comment">//读取数据时应该判断文件是否存在。  </span></span><br><span class="line"><span class="comment">//这两种方式都是要占据项目的空间，使得系统运行时会出现空间不足的问题。</span></span><br></pre></td></tr></table></figure>
+<h3 id="（2）外部（SD卡）存储"><a href="#（2）外部（SD卡）存储" class="headerlink" title="（2）外部（SD卡）存储"></a>（2）外部（SD卡）存储</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先判断SDCard是否存在file explorer ./mnt/sdcard/  </span></span><br><span class="line"><span class="keyword">if</span>(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))&#123;  </span><br><span class="line">    <span class="comment">//获得SDCard的根目录  </span></span><br><span class="line">	String filePath = Environment.getExternalStorageDirectory() + File.separator + <span class="string">"b103"</span> + File.separator + <span class="string">"test.txt"</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong><span style="color: #ff0000;">配置文件中加权限</span></strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span>  <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span>  <span class="attr">android:name</span>=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其他操作与普通的JAVA的IO操作没有区别。</p>
+<h2 id="3-SQLite数据库：把结构化的数据保存在一个私有的数据库中"><a href="#3-SQLite数据库：把结构化的数据保存在一个私有的数据库中" class="headerlink" title="3. SQLite数据库：把结构化的数据保存在一个私有的数据库中"></a>3. SQLite数据库：把结构化的数据保存在一个私有的数据库中</h2><h2 id="4-网络存储：把数据保存在网络上开发者自己的服务器中"><a href="#4-网络存储：把数据保存在网络上开发者自己的服务器中" class="headerlink" title="4. 网络存储：把数据保存在网络上开发者自己的服务器中"></a>4. 网络存储：把数据保存在网络上开发者自己的服务器中</h2><h2 id="5-XML存储：通过XML文件存储数据"><a href="#5-XML存储：通过XML文件存储数据" class="headerlink" title="5. XML存储：通过XML文件存储数据"></a>5. XML存储：通过XML文件存储数据</h2><p>也相当于文件存储的一种形式。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Android-TabHost" class="article article-type-post" itemscope itemprop="blogPost">
   
